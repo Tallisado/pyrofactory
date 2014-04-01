@@ -1,1 +1,1 @@
-from PyroFactory import PyroFactory
+__author__ = 'vvlad'
