@@ -1,14 +1,25 @@
 # -*- coding: utf-8 -*-
 #
  
+ 
+ ##
+ #
+ #
+ #
+ 
+ 
+ #BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python pyrobot.py
+ #BASE_URL=http://10.10.9.63 BROWSER='chrome' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python pyrobot.py
+ #WORKSPACE_UID=WEEKLY_DEV_%env.BUILD_NUMBER% BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python /mnt/wt/pyrobot_2/pyrobot/pyrobot.py
+ 
 # imports
 # from robot.running import TestSuite
 # from robot import utils
 # from robot.conf import settings
 import os, glob
 import subprocess
-# import time
-# from datetime import datetime
+import time
+from datetime import datetime
 import sys
 # import getopt
 # import fileinput
@@ -17,9 +28,11 @@ import string
 import random
 import shutil
 
-import pyrobot_config as config
-from browser_data import *
-from sauce_rest import *
+#import pyrobot_config as config
+###from browser_data import *
+import imp
+foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
+#from sauce_rest import *
  
 class PyRunner():
     """ Helper class to interact with RobotFrameworks pybot script to execute tests / test suites.    
@@ -35,7 +48,7 @@ class PyRunner():
         """
         self.name = name
    
-    def start(self, payload, typology, args=[]):
+    def start(self, payload, workspace_home, client_cwd, typology, args=[]):
         """ Starts the pybot script from RobotFramework executing the given 'suite'.
         'args' (optional) is a list of additional parameters passed to pybot
         """
@@ -46,9 +59,10 @@ class PyRunner():
 
         self.py_runner_log = os.path.join(workspace_home, ("%s_Stdout.txt" % self.name))
         jyLog = open(self.py_runner_log, "w")        
-        jybotCommand = "pybot %s --name %s --outputdir %s --output %s --log %s --report %s %s" % (typology, self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
+        #jybotCommand = "pybot %s --name %s --outputdir %s --output %s --log %s --report %s %s" % (typology, self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
+        jybotCommand = "pybot --name %s --outputdir %s --output %s --log %s --report %s %s" % (self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
         
-        print "Executing :        %s ..." % jybotCommand
+        print "(PyroFactory,PyRunner)[start] Starting the following pybot instance:\n[-------] %s ..." % jybotCommand
         self.running = True
         #self.process = subprocess.Popen(["pybot", "-o", "%s" % os.path.join(log_folder, self.output_file), "%s" % self.suite], cwd=client_cwd, stdout=jyLog, stderr=jyLog)
         self.process = subprocess.Popen(jybotCommand.split(' '), cwd=client_cwd, stdout=jyLog, stderr=jyLog)
@@ -72,20 +86,23 @@ class PyRunner():
         
 ######################################################################################################
 class PyroFactory():
-    def __init__(self, config):
-        self._config = config
+    def __init__(self):
+        print '(PyroFactory) ----------------> ........ <-----------------'
+        print '(PyroFactory) ----------------> Starting <-----------------'
+        print '(PyroFactory) ----------------> ........ <-----------------'
         pass
-    
-    def run(self):
+        
+    def run(self,config):
+        self._config = config
         try:
-            browser_data = BrowserData(self._config)
-           
+            browser_data = foo.BrowserData(self._config)
             if 'PAYLOAD' in os.environ:
                 relative_payload = os.environ.get('PAYLOAD')
             else:
-                raise NameError('(PyroFactory) getAntArguments PAYLOAD is a mandatory env variable from Ant')
-            typology = "--variablefile %s" % os.path.join(os.path.realpath(self.base_dir) ,os.environ.get('TYPOLOGY', self._config.DEFAULT_TYPOLOGY))
-            
+                raise NameError('(PyroFactory)[run] RUNTIME ERROR: PAYLOAD is a mandatory environment variable')
+            #typology = "--variablefile %s" % os.path.join(os.path.realpath("./") ,os.environ.get('TYPOLOGY', self._config.DEFAULT_TYPOLOGY))
+            typology = ""
+            os.environ['ONDEMAND_PYRO'] = "PLACEHOLDER_ONDEMAND_STRING"
         except:
             raise
             usage()
@@ -96,23 +113,22 @@ class PyroFactory():
         
         # reading variables from ParabotConfig
         time_between_test_start_up = self._config.time_between_test_start_up
-        log_folder = self._config.LOG_DIR  
         
         # runtime variables
         base_dir = "./"
         pybots = []
         suite_name = os.path.basename(os.path.normpath(relative_payload))
         client_cwd = os.path.realpath(base_dir) 
-        workspace_home = os.path.join(os.path.join(os.path.realpath(self.base_dir), self._config.WORKSPACE), '/'.join(random.choice(string.ascii_uppercase) for i in range(12)))
-        absolute_payload = os.path.join(os.path.realpath(base_dir), payload)
-        print 'workspace may be wrong: %s'  % workspace_home
+    #####    workspace_home = os.path.join(os.path.join(client_cwd, self._config.WORKSPACE), (''.join(random.choice(string.ascii_uppercase) for i in range(12))))
+        uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
+        workspace_home = os.path.join("/mnt/wt/pyrobot_2/pyrobot/workspace/", uid)
+        absolute_payload = os.path.join(os.path.realpath(base_dir), relative_payload)
         
-        print '(PyroFactory) --------> Starting <---------'
-        print '(PyroFactory) RUNTIME:'
-        print '(PyroFactory) - Suite Name:       %s' % suite_name
-        print '(PyroFactory) - Client CWD:       %s' % client_cwd
-        print '(PyroFactory) - Workspace Home:   %s' % workspace_home
-        print '(PyroFactory) - Payload:          %s' % absolute_payload
+        print '(PyroFactory)[run][RUNTIME] Suite Name:       %s' % suite_name
+        print '(PyroFactory)[run][RUNTIME] Client CWD:       %s' % client_cwd
+        print '(PyroFactory)[run][RUNTIME] Workspace Home:   %s' % workspace_home
+        print '(PyroFactory)[run][RUNTIME] relative_payload: %s' % relative_payload
+        print '(PyroFactory)[run][RUNTIME] absolute_payload: %s' % absolute_payload
         
         if not os.path.exists(absolute_payload):
             print '(PyroFactory) [run] payload absolute path must exist! '
@@ -120,36 +136,40 @@ class PyroFactory():
             sys.exit(2)
         
         # start working
-        os.mkdir(workspace_home, 0755)        
+        os.mkdir(workspace_home, 0755)
         for browser_index in range(0, browser_data.getUrlCount()):
             test_name = ("%s_%s_%s" % (browser_data.getBrowser(browser_index), browser_data.getOS(browser_index), browser_data.getBrowserVersion(browser_index))).replace(' ', '_')
-            browser_data.setPyrobotEnvForTest(browser_index, config, test_name)
             print ""   
-            print '(PyroFactory) - Running test:     %s' % test_name
+            print '(PyroFactory)[run] Starting runner for test:\n[-------] %s' % test_name
+            browser_data.setRuntimeENV(browser_index, self._config, test_name)
             runner = PyRunner(test_name)
-            bot = runner.start(absolute_payload, typology, getDynArgs(0))
-            while bot.isRunning():
+            #bot = runner.start(absolute_payload, typology, self.getDynArgs(0))
+            bot = runner.start(absolute_payload, workspace_home, client_cwd, typology)
+            while runner.isRunning():
                 time.sleep(time_between_test_start_up)
             pybots.append(bot)
-            with open(bot.py_runner_log, 'r') as fin:
+            with open(runner.py_runner_log, 'r') as fin:
                 print fin.read()
         
-        
+        #print out the OnDemand string for teamcity
+        print os.environ.get('ONDEMAND_PYRO')
+
         
         report = os.path.join(workspace_home, "%s_Report.html" % suite_name)
         log = os.path.join(workspace_home, "%s_Log.html" % suite_name)
-        reportRC = generateReportAndLog(workspace_home, report, log, suite_name) 
+        reportRC = self.generateReportAndLog(workspace_home, report, log, suite_name) 
         # delete XML output files after generating the report / log (if report generation
         # returned zero)
         #if reportRC == 0:
         #    for outXML in outputXmls:
         #        os.remove(outXML)
         
-        executionTime = endTime - startTime
+        execution_time = datetime.now() - startTime
         print ""
-        print "(PyroFactory) Execution Time:    %s" % executionTime
-        
-        print '(PyroFactory) --------> Finishing <---------'
+        print "(PyroFactory) [Execution Time]: %s" % execution_time        
+        print '(PyroFactory) ----------------> ......... <-----------------'
+        print '(PyroFactory) ----------------> Finishing <-----------------'
+        print '(PyroFactory) ----------------> ......... <-----------------'
         
     def usage():
         """ Prints usage information for Parabot """
@@ -166,16 +186,17 @@ class PyroFactory():
         print "-f\t--forceserial\tForces serial test execution"
         print "-b\t--basedir\tSet parabots base dir"
         print ""
-            
-    def generateReportAndLog(xml_location, report_file, log_file, report_title):
+        
+    def generateReportAndLog(self, workspace_home, report_file, log_file, report_title):
         """ Calls RobotFrameworks rebot tool to generate Report and Log files from output.xml files
         'xmlFiles' is a list of output.xml files from jybot / pybot
         'report_file' is the path+name of the report.html file to be written
         'log_file' is the path+name of the log.html file to be written
         the global variable 'payload' will be used a report title
         """    
-        rebotCommand = "rebot --log %s --report %s --reporttitle \"%s\" --name ' ' %s/*.xml" % (log_file, report_file, report_title, xml_location)
-        print 'rebotCommand: ' +  rebotCommand
+        rebotCommand = "rebot --log %s --report %s --reporttitle \"%s\" --name ' ' %s/*.xml" % (log_file, report_file, report_title, workspace_home)      
+        print "(PyroFactory) [generateReportAndLog]: Rebot Consolidation "       
+        print "(PyroFactory,generateReportAndLog) Starting the following rebot instance:-------> %s" % rebotCommand     
         rc = os.system(rebotCommand)
         return rc
 
