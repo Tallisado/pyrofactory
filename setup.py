@@ -1,9 +1,8 @@
-from setuptools import setup, find_packages
-import sys, os
+from distutils.core import setup
 
-version = '0.1'
+version = '1.1'
 
-setup(name='PyroFactory',
+setup(name='pyrofactory',
       version=version,
       description="SauceCI Robot Framework Factory for Python",
       long_description="""\
@@ -19,4 +18,4 @@ Simple interface factory to spawn multiple pybot instances based on the environm
       install_requires=[
           "robotframework-selenium2library",
       ],
-      )
+)
