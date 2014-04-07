@@ -112,7 +112,7 @@ class PyroFactory():
         client_cwd = os.path.realpath(base_dir) 
     #####    workspace_home = os.path.join(os.path.join(client_cwd, self._config.WORKSPACE), (''.join(random.choice(string.ascii_uppercase) for i in range(12))))
         uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
-        workspace_home = os.path.join("/mnt/wt/pyrobot_2/pyrobot/workspace/", uid)
+        workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
         absolute_payload = os.path.join(os.path.realpath(base_dir), relative_payload)
         
         print '(PyroFactory)[run][RUNTIME] Suite Name:       %s' % suite_name
