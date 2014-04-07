@@ -31,7 +31,7 @@ import shutil
 #import pyrobot_config as config
 ###from browser_data import *
 import imp
-foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
+foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_v1.1/pyrofactory/src/pyro_factory/browser_data.py')
 #from sauce_rest import *
  
 class PyRunner():
@@ -121,7 +121,7 @@ class PyroFactory():
         client_cwd = os.path.realpath(base_dir) 
     #####    workspace_home = os.path.join(os.path.join(client_cwd, self._config.WORKSPACE), (''.join(random.choice(string.ascii_uppercase) for i in range(12))))
         uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
-        workspace_home = os.path.join("/mnt/wt/pyrobot_2/pyrobot/workspace/", uid)
+        workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
         absolute_payload = os.path.join(os.path.realpath(base_dir), relative_payload)
         
         print '(PyroFactory)[run][RUNTIME] Suite Name:       %s' % suite_name
