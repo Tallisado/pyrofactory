@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-#
- 
- 
- ##
- #
- #
- #
- 
- 
  #BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python pyrobot.py
  #BASE_URL=http://10.10.9.63 BROWSER='chrome' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python pyrobot.py
  #WORKSPACE_UID=WEEKLY_DEV_%env.BUILD_NUMBER% BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python /mnt/wt/pyrobot_2/pyrobot/pyrobot.py
@@ -31,7 +21,8 @@ import shutil
 #import pyrobot_config as config
 ###from browser_data import *
 import imp
-foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
+from browser_data import BrowserData
+#foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
 #from sauce_rest import *
  
 class PyRunner():
@@ -95,7 +86,7 @@ class PyroFactory():
     def run(self,config):
         self._config = config
         try:
-            browser_data = foo.BrowserData(self._config)
+            browser_data = BrowserData(self._config)
             if 'PAYLOAD' in os.environ:
                 relative_payload = os.environ.get('PAYLOAD')
             else:
