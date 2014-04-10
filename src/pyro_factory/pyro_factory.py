@@ -39,7 +39,7 @@ class PyRunner():
         """
         self.name = name
    
-    def start(self, payload, workspace_home, client_cwd, typology, args=[]):
+    def start(self, payload, workspace_home, client_cwd, pybot_argstring, args=[]):
         """ Starts the pybot script from RobotFramework executing the given 'suite'.
         'args' (optional) is a list of additional parameters passed to pybot
         """
@@ -50,8 +50,8 @@ class PyRunner():
 
         self.py_runner_log = os.path.join(workspace_home, ("%s_Stdout.txt" % self.name))
         jyLog = open(self.py_runner_log, "w")        
-        #jybotCommand = "pybot %s --name %s --outputdir %s --output %s --log %s --report %s %s" % (typology, self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
-        jybotCommand = "pybot --name %s --outputdir %s --output %s --log %s --report %s %s" % (self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
+        jybotCommand = "pybot %s --name %s --outputdir %s --output %s --log %s --report %s %s" % (pybot_argstring, self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
+        #jybotCommand = "pybot --name %s --outputdir %s --output %s --log %s --report %s %s" % (self.name, workspace_home, self.output_file, self.log_file, self.report_file, payload)
         
         print "(PyroFactory,PyRunner)[start] Starting the following pybot instance:\n[-------] %s ..." % jybotCommand
         self.running = True
@@ -91,12 +91,10 @@ class PyroFactory():
                 relative_payload = os.environ.get('PAYLOAD')
             else:
                 raise NameError('(PyroFactory)[run] RUNTIME ERROR: PAYLOAD is a mandatory environment variable')
-            #typology = "--variablefile %s" % os.path.join(os.path.realpath("./") ,os.environ.get('TYPOLOGY', self._config.DEFAULT_TYPOLOGY))
-            typology = ""
             os.environ['ONDEMAND_PYRO'] = "PLACEHOLDER_ONDEMAND_STRING"
         except:
             raise
-            usage()
+            self.usage()
             sys.exit(2)
         
         # save current time to calculate execution time at the end of the script
@@ -115,6 +113,9 @@ class PyroFactory():
         workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
         absolute_payload = os.path.join(os.path.realpath(base_dir), relative_payload)
         
+        pyarg_variable_file = os.path.join(os.path.join(os.path.realpath("./") ,self._config.DEFAULT_TOPOLOGY_FOLDER), self._config.DEFAULT_TOPOLOGY)
+        pybot_argstring = "--variablefile %s" % pyarg_variable_file
+                
         print '(PyroFactory)[run][RUNTIME] Suite Name:       %s' % suite_name
         print '(PyroFactory)[run][RUNTIME] Client CWD:       %s' % client_cwd
         print '(PyroFactory)[run][RUNTIME] Workspace Home:   %s' % workspace_home
@@ -123,7 +124,7 @@ class PyroFactory():
         
         if not os.path.exists(absolute_payload):
             print '(PyroFactory) [run] payload absolute path must exist! '
-            usage()
+            self.usage()
             sys.exit(2)
         
         # start working
@@ -135,7 +136,7 @@ class PyroFactory():
             browser_data.setRuntimeENV(browser_index, self._config, test_name)
             runner = PyRunner(test_name)
             #bot = runner.start(absolute_payload, typology, self.getDynArgs(0))
-            bot = runner.start(absolute_payload, workspace_home, client_cwd, typology)
+            bot = runner.start(absolute_payload, workspace_home, client_cwd, pybot_argstring)
             while runner.isRunning():
                 time.sleep(time_between_test_start_up)
             pybots.append(bot)
@@ -163,20 +164,21 @@ class PyroFactory():
         print '(PyroFactory) ----------------> ......... <-----------------'
         
     def usage():
-        """ Prints usage information for Parabot """
+        """ Prints usage information for PyroFactory """
         print ""
-        print "Usage: python parabot.py [options] <testsuite.tsv>"
+        print "Usage: python pyrobot.py [options] <testsuite_dir|testfile.txt>"
         print ""
-        print "<testsuite.tsv> can be absolute or relative path + filename of a testsuite."
+        print "<testsuite|testfile> can be absolute or relative path OR filename of testcode."
         print "The containing folder will be used as working directory"
         print ""
-        print "Options:"
-        print "-h\t--help\t\tThis screen"
-        print "-i\t--include\tInclude a tag"
-        print "-e\t--exclude\tExclude a tag"
-        print "-f\t--forceserial\tForces serial test execution"
-        print "-b\t--basedir\tSet parabots base dir"
-        print ""
+        # print "Options:"
+        # print "-h\t--help\t\tThis screen"
+        # print "-i\t--include\tInclude a tag"
+        # print "-e\t--exclude\tExclude a tag"
+        # print "-f\t--forceserial\tForces serial test execution"
+        # print "-b\t--basedir\tSet parabots base dir"
+        # print ""
+        # TODO: WRITE A BETTER USAGE !!
         
     def generateReportAndLog(self, workspace_home, report_file, log_file, report_title):
         """ Calls RobotFrameworks rebot tool to generate Report and Log files from output.xml files
