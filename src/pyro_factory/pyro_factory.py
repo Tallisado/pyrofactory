@@ -150,7 +150,7 @@ class PyroFactory():
         output = os.path.join(workspace_home, "%s_Output.xml" % suite_name)
         report = os.path.join(workspace_home, "%s_Report.html" % suite_name)
         log = os.path.join(workspace_home, "%s_Log.html" % suite_name)
-        reportRC = self.generateReportAndLog(output, workspace_home, report, log, suite_name) 
+        reportRC = self.generateReportAndLog(workspace_home, report, log, output, suite_name) 
         # delete XML output files after generating the report / log (if report generation
         # returned zero)
         #if reportRC == 0:
