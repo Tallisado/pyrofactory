@@ -147,9 +147,10 @@ class PyroFactory():
         print os.environ.get('ONDEMAND_PYRO')
 
         
+        output = os.path.join(workspace_home, "%s_Output.xml" % suite_name)
         report = os.path.join(workspace_home, "%s_Report.html" % suite_name)
         log = os.path.join(workspace_home, "%s_Log.html" % suite_name)
-        reportRC = self.generateReportAndLog(workspace_home, report, log, suite_name) 
+        reportRC = self.generateReportAndLog(output, workspace_home, report, log, suite_name) 
         # delete XML output files after generating the report / log (if report generation
         # returned zero)
         #if reportRC == 0:
@@ -162,7 +163,10 @@ class PyroFactory():
         print '(PyroFactory) ----------------> ......... <-----------------'
         print '(PyroFactory) ----------------> Finishing <-----------------'
         print '(PyroFactory) ----------------> ......... <-----------------'
+    
+    def send_email(self):
         
+    
     def usage():
         """ Prints usage information for PyroFactory """
         print ""
@@ -180,14 +184,14 @@ class PyroFactory():
         # print ""
         # TODO: WRITE A BETTER USAGE !!
         
-    def generateReportAndLog(self, workspace_home, report_file, log_file, report_title):
+    def generateReportAndLog(self, workspace_home, report_file, log_file, output_file, report_title):
         """ Calls RobotFrameworks rebot tool to generate Report and Log files from output.xml files
         'xmlFiles' is a list of output.xml files from jybot / pybot
         'report_file' is the path+name of the report.html file to be written
         'log_file' is the path+name of the log.html file to be written
         the global variable 'payload' will be used a report title
         """    
-        rebotCommand = "rebot --log %s --report %s --reporttitle \"%s\" --name ' ' %s/*.xml" % (log_file, report_file, report_title, workspace_home)      
+        rebotCommand = "rebot --output %s --log %s --report %s --reporttitle \"%s\" --name ' ' %s/*.xml" % (output_file, log_file, report_file, report_title, workspace_home)      
         print "(PyroFactory) [generateReportAndLog]: Rebot Consolidation "       
         print "(PyroFactory,generateReportAndLog) Starting the following rebot instance:-------> %s" % rebotCommand     
         rc = os.system(rebotCommand)
