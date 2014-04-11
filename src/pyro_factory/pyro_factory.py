@@ -165,7 +165,7 @@ class PyroFactory():
         print '(PyroFactory) ----------------> ......... <-----------------'
     
     def send_email(self):
-        
+        pass
     
     def usage():
         """ Prints usage information for PyroFactory """
