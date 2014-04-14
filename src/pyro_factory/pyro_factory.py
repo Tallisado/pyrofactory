@@ -181,37 +181,37 @@ class PyroFactory():
         print '(PyroFactory) ----------------> Finishing <-----------------'
         print '(PyroFactory) ----------------> ......... <-----------------'
       
-    def send_email(self, testspace_home, workspace_home, target_output_file):
-        print "(PyroFactory) [send_email]: Email Results"
+    # def send_email(self, testspace_home, workspace_home, target_output_file):
+        # print "(PyroFactory) [send_email]: Email Results"
         
-        uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
-        workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
-        testspace_home = os.path.join(workspace_home, suite_name)
+        # uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
+        # workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
+        # testspace_home = os.path.join(workspace_home, suite_name)
         
-        # determine if this is weekly or nightly
-        email_type = 'Unknown'
-        if 'nightly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
-            email_type = 'Nightly'
-        elif 'weekly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
-            email_type = 'Weekly'
+        # # determine if this is weekly or nightly
+        # email_type = 'Unknown'
+        # if 'nightly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
+            # email_type = 'Nightly'
+        # elif 'weekly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
+            # email_type = 'Weekly'
             
-        email_message = "Automation Summary:\n\n"
+        # email_message = "Automation Summary:\n\n"
         
-        os.walk('.').next()[1]
+        # os.walk('.').next()[1]
             
         
         
-        test_run = ExecutionResult(outputfile_full_path, include_keywords=True)
+        # test_run = ExecutionResult(outputfile_full_path, include_keywords=True)
         
-        for stat in test_run.statistics.suite:
-            email_message += ""
-            print stat.name,
-            print stat.failed,
-            print stat.passed 
+        # for stat in test_run.statistics.suite:
+            # email_message += ""
+            # print stat.name,
+            # print stat.failed,
+            # print stat.passed 
             
-				@html_output_summary += "#{testname} -> " + (fail.to_i > 0 ? 'FAILED' : 'PASSED') + "\n"
-				@html_output_helpful += "#{testname} Debug: " + (part_weblink_artifact_workspace+"#{testname}/report.html") + "\n" if fail.to_i > 0
-        pass
+				# @html_output_summary += "#{testname} -> " + (fail.to_i > 0 ? 'FAILED' : 'PASSED') + "\n"
+				# @html_output_helpful += "#{testname} Debug: " + (part_weblink_artifact_workspace+"#{testname}/report.html") + "\n" if fail.to_i > 0
+        # pass
     
     def usage():
         """ Prints usage information for PyroFactory """
