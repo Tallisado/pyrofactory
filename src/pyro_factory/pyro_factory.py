@@ -108,10 +108,11 @@ class PyroFactory():
         # runtime variables
         base_dir = "./"
         pybots = []
+        
+        suite_name = os.path.basename(os.path.normpath(relative_payload))
         if '.' in suite_name:
             suite_name = os.path.splitext(suite_name)[0]
-        else:
-            suite_name = os.path.basename(os.path.normpath(relative_payload))
+            
             
         client_cwd = os.path.realpath(base_dir) 
     #####    workspace_home = os.path.join(os.path.join(client_cwd, self._config.WORKSPACE), (''.join(random.choice(string.ascii_uppercase) for i in range(12))))
