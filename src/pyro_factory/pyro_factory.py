@@ -161,9 +161,9 @@ class PyroFactory():
         # report = os.path.join(testspace_home, "%s_REPORT.html" % suite_name)
         # log = os.path.join(testspace_home, "%s_LOG.html" % suite_name)      
         
-        # output = "%s_OUTPUT.xml" % suite_name
-        # report = "%s_REPORT.html" % suite_name
-        # log = "%s_LOG.html" % suite_name
+        output = "%s_OUTPUT.xml" % suite_name
+        report = "%s_REPORT.html" % suite_name
+        log = "%s_LOG.html" % suite_name
         
         reportRC = self.generateReportAndLog(workspace_home, report, log, output, suite_name) 
         #send_email(testspace_home, workspace_home, output
