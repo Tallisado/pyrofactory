@@ -110,7 +110,7 @@ class PyroFactory():
         pybots = []
         if '.' in suite_name:
             suite_name = os.path.splitext(suite_name)[0]
-        else
+        else:
             suite_name = os.path.basename(os.path.normpath(relative_payload))
             
         client_cwd = os.path.realpath(base_dir) 
