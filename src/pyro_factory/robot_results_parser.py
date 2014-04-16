@@ -22,10 +22,20 @@ class RobotResults(object):
     @property
     def suite(self):
         return self._suite_name
+    
+    @property
+    def testname(self):
+        return self._test_name
+    
+    @property
     def elapsed(self):
         return self._elapsed
+    
+    @property
     def passed(self):
         return self._passed    
+    
+    @property
     def failed(self):
         return self._failed
         
