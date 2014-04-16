@@ -24,6 +24,7 @@ import shutil
 ###from browser_data import *
 import imp
 from browser_data import BrowserData
+from robot_results_parser import RobotResultsParser
 #foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
 #from sauce_rest import *
  
@@ -181,7 +182,23 @@ class PyroFactory():
         print '(PyroFactory) ----------------> Finishing <-----------------'
         print '(PyroFactory) ----------------> ......... <-----------------'
       
-    # def send_email(self, testspace_home, workspace_home, target_output_file):
+    def send_email(self, workspace_home):
+        #verbose_stream = sys.stdout
+        verbose_stream = None
+        rrp = RobotResultsParser(False, verbose_stream)
+        robot_results = []
+        #working_dir = '/mnt/wt/pyrobot_v1.1/pyrobot/workspace/tester'
+        for dirname in os.walk(workspace_home).next()[1]:
+            print dirname
+            test_dir = os.path.join(working_dir,dirname)
+            for file in os.listdir(test_dir):
+                if file.endswith(".xml"):
+                    print file
+                    robot_results.append(rrp.xml_to_object(os.path.join(test_dir,file), dirname))
+ 
+        for result in robot_results:
+            print result.suite
+        
         # print "(PyroFactory) [send_email]: Email Results"
         
         # uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
