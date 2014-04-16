@@ -18,11 +18,16 @@ class RobotResults(object):
         self._elapsed = test['elapsed']
         self._passed = test['passed']
         self._failed = test['failed']
+        self._source = source
         
     @property
     def suite(self):
         return self._suite_name
-    
+
+    @property
+    def source(self):
+        return self._source
+        
     @property
     def testname(self):
         return self._test_name

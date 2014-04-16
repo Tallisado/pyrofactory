@@ -224,7 +224,7 @@ class PyroFactory():
             if email_type == 'Nightly':
                 email_message += "%s -> %s\n" % (result.suite, task_text_result)
             else:
-                email_message += "%s (%s)-> %s\n" % (result.suite, result.testname, task_text_result)
+                email_message += "%s (%s)-> %s\n" % (result.suite, result.source, task_text_result)
         
         print email_message
         
