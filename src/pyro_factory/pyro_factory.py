@@ -222,7 +222,9 @@ class PyroFactory():
                 suite_result = "FAILED"
                 
             email_message += "%s -> %s" % (result.suite, task_text_result)
-         
+        
+        print email_message
+        
         msg = MIMEText(email_message)
         
         me = 'talliskane@gmail.com' 
