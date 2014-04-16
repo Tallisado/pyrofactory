@@ -193,10 +193,10 @@ class PyroFactory():
         print "(PyroFactory) [send_email]: Email Results"        
 
         # determine if this is weekly or nightly
-        email_type = 'Unknown'
-        if 'nightly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
+        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Unknown')
+        if 'nightly' in email_type:
             email_type = 'Nightly'
-        elif 'weekly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
+        elif 'weekly' in email_type:
             email_type = 'Weekly'
             
         email_message = "Automation Summary:\n\n"        
