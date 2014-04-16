@@ -228,7 +228,7 @@ class PyroFactory():
         me = 'talliskane@gmail.com' 
         you = 'tallis.vanek@adtran.com'
 
-        msg['Subject'] = "<Nightly %s>" % 
+        msg['Subject'] = "<Nightly %s>" % suite_result
         msg['From'] = me
         msg['To'] = you
 
