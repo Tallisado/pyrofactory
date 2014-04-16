@@ -190,7 +190,7 @@ class PyroFactory():
         #working_dir = '/mnt/wt/pyrobot_v1.1/pyrobot/workspace/tester'
         for dirname in os.walk(workspace_home).next()[1]:
             print dirname
-            test_dir = os.path.join(working_dir,dirname)
+            test_dir = os.path.join(workspace_home,dirname)
             for file in os.listdir(test_dir):
                 if file.endswith(".xml"):
                     print file
