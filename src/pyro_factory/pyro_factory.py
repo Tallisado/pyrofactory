@@ -27,6 +27,12 @@ from browser_data import BrowserData
 from robot_results_parser import RobotResultsParser
 #foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
 #from sauce_rest import *
+
+# send_mail    
+# Import smtplib for the actual sending function
+import smtplib
+# Import the email modules we'll need
+from email.mime.text import MIMEText
  
 class PyRunner():
     """ Helper class to interact with RobotFrameworks pybot script to execute tests / test suites.    
@@ -184,6 +190,17 @@ class PyroFactory():
       
     def send_email(self, workspace_home):
         #verbose_stream = sys.stdout
+        print "(PyroFactory) [send_email]: Email Results"        
+
+        # determine if this is weekly or nightly
+        email_type = 'Unknown'
+        if 'nightly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
+            email_type = 'Nightly'
+        elif 'weekly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
+            email_type = 'Weekly'
+            
+        email_message = "Automation Summary:\n\n"        
+        
         verbose_stream = None
         rrp = RobotResultsParser(False, verbose_stream)
         robot_results = []
@@ -196,39 +213,30 @@ class PyroFactory():
                     print file
                     robot_results.append(rrp.xml_to_object(os.path.join(test_dir,file), dirname))
  
-        for result in robot_results:
-            print result.suite
+        suite_result = "PASSED"
+        for result in robot_results:           
+            if result.failed == 0:
+                task_text_result = "PASSED"
+            else:
+                task_text_result = "FAILED"
+                suite_result = "FAILED"
+                
+            email_message += "%s -> %s" % (result.suite, task_text_result)
+         
+        msg = MIMEText(email_message)
         
-        # print "(PyroFactory) [send_email]: Email Results"
-        
-        # uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
-        # workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
-        # testspace_home = os.path.join(workspace_home, suite_name)
-        
-        # # determine if this is weekly or nightly
-        # email_type = 'Unknown'
-        # if 'nightly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
-            # email_type = 'Nightly'
-        # elif 'weekly' in os.environ.get('TEAMCITY_PROJECT_NAME'):
-            # email_type = 'Weekly'
-            
-        # email_message = "Automation Summary:\n\n"
-        
-        # os.walk('.').next()[1]
-            
-        
-        
-        # test_run = ExecutionResult(outputfile_full_path, include_keywords=True)
-        
-        # for stat in test_run.statistics.suite:
-            # email_message += ""
-            # print stat.name,
-            # print stat.failed,
-            # print stat.passed 
-            
-				# @html_output_summary += "#{testname} -> " + (fail.to_i > 0 ? 'FAILED' : 'PASSED') + "\n"
-				# @html_output_helpful += "#{testname} Debug: " + (part_weblink_artifact_workspace+"#{testname}/report.html") + "\n" if fail.to_i > 0
-        # pass
+        me = 'talliskane@gmail.com' 
+        you = 'tallis.vanek@adtran.com'
+
+        msg['Subject'] = "<Nightly %s>" % 
+        msg['From'] = me
+        msg['To'] = you
+
+        # Send the message via our own SMTP server, but don't include the
+        # envelope header.
+        s = smtplib.SMTP('localhost')
+        s.sendmail(me, [you], msg.as_string())
+        s.quit()
     
     def usage():
         """ Prints usage information for PyroFactory """
