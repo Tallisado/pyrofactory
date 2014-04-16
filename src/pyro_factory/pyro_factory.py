@@ -221,16 +221,19 @@ class PyroFactory():
                 task_text_result = "FAILED"
                 suite_result = "FAILED"
                 
-            email_message += "%s -> %s" % (result.suite, task_text_result)
+            if email_type == 'Nightly'
+                email_message += "%s -> %s\n" % (result.suite, task_text_result)
+            else
+                email_message += "%s (%s)-> %s\n" % (result.suite, result.testname, task_text_result)
         
         print email_message
         
-        msg = MIMEText(email_message)
+        msg = MIMEText(email_message,"\n\n")
         
         me = 'talliskane@gmail.com' 
         you = 'tallis.vanek@adtran.com'
 
-        msg['Subject'] = "<Nightly %s>" % suite_result
+        msg['Subject'] = "<%s %s>" % (email_type, suite_result)
         msg['From'] = me
         msg['To'] = you
 
