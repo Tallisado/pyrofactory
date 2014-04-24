@@ -191,8 +191,9 @@ class PyroFactory():
         print '(PyroFactory) ----------------> Finishing <-----------------'
         print '(PyroFactory) ----------------> ......... <-----------------'
       
-    def send_email(self, workspace_home=self._workspace):
+    def send_email(self):
         #verbose_stream = sys.stdout
+        workspace_home=self._workspace
         print "(PyroFactory) [send_email]: Email Results (%s)" % self._workspace        
 
         # determine if this is weekly or nightly
