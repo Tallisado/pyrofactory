@@ -222,9 +222,17 @@ class PyroFactory():
                 suite_result = "FAILED"
                 
             if email_type == 'Nightly':
-                email_message += "  %s -> %s\n" % (result.suite, task_text_result)
+                email_message += "  %10s -> %10s\n" % (result.suite, task_text_result)
             else:
-                email_message += "  %s (%s)-> %s\n" % (result.suite, os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
+                email_message += "  %10s (%10s)-> %10s\n" % (result.suite, os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
+        
+        #http://10.10.8.17/teamcity/viewLog.html?buildId=2829&buildTypeId=WeeklyDev_03SauceSingleV11&tab=artifacts
+        #echo "##teamcity[setParameter name='env.BUILDID' value='%teamcity.build.id%']"
+        #echo "##teamcity[setParameter name='env.BUILDTYPEID' value='%system.teamcity.buildType.id%']"        
+        if 'BUILDID' in os.environ and 'BUILDTYPEID' in os.environ:
+            artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
+            email_message += "\n   TeamCity Artifacts: \n   %s" % artifacts_weblink
+                
         print email_message
         
         msg = MIMEText(email_message,"\n\n")
