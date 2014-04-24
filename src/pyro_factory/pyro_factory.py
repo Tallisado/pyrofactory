@@ -224,7 +224,7 @@ class PyroFactory():
             if email_type == 'Nightly':
                 email_message += "  %10s -> %10s\n" % (result.suite, task_text_result)
             else:
-                email_message += "  %10s (%10s)-> %10s\n" % (result.suite, os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
+                email_message += "  %10s (%20s)-> %10s\n" % (result.suite, os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
         
         #http://10.10.8.17/teamcity/viewLog.html?buildId=2829&buildTypeId=WeeklyDev_03SauceSingleV11&tab=artifacts
         #echo "##teamcity[setParameter name='env.BUILDID' value='%teamcity.build.id%']"
