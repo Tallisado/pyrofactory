@@ -103,7 +103,7 @@ class PyroFactory():
                 raise NameError('(PyroFactory)[run] RUNTIME ERROR: PAYLOAD is a mandatory environment variable')
             os.environ['ONDEMAND_PYRO'] = "PLACEHOLDER_ONDEMAND_STRING"
         except:
-            raise
+            raise error('PAYLOAD must be a real txt file or directory!')
             self.usage()
             sys.exit(2)
         
@@ -231,10 +231,12 @@ class PyroFactory():
                 email_message += "%s%10s%s%-40s->%10s\r\n" % ('  ',result.suite, '  ', os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
         
         #http://10.10.8.17/teamcity/viewLog.html?buildId=2829&buildTypeId=WeeklyDev_03SauceSingleV11&tab=artifacts
+        # export BUILDID=%teamcity.build.id%
+        # export BUILDTYPEID=%system.teamcity.buildType.id%
         #echo "##teamcity[setParameter name='env.BUILDID' value='%teamcity.build.id%']"
         #echo "##teamcity[setParameter name='env.BUILDTYPEID' value='%system.teamcity.buildType.id%']"        
-        if 'BUILDID' in os.environ and 'BUILDTYPEID' in os.environ:
-            artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID'), os.environ.get('BUILDTYPEID'))
+        if 'TEAMCITY_VERSION' in os.environ:
+            artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
             #artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
             email_message += "\n   TeamCity Artifacts: \n   %s" % artifacts_weblink
                 
