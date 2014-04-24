@@ -222,9 +222,9 @@ class PyroFactory():
                 suite_result = "FAILED"
                 
             if email_type == 'Nightly':
-                email_message += "%s -> %s\n" % (result.suite, task_text_result)
+                email_message += "  %s -> %s\n" % (result.suite, task_text_result)
             else:
-                email_message += "%s (%s)-> %s\n" % (result.suite, os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
+                email_message += "  %s (%s)-> %s\n" % (result.suite, os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
         print email_message
         
         msg = MIMEText(email_message,"\n\n")
