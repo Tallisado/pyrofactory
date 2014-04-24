@@ -230,14 +230,15 @@ class PyroFactory():
         #echo "##teamcity[setParameter name='env.BUILDID' value='%teamcity.build.id%']"
         #echo "##teamcity[setParameter name='env.BUILDTYPEID' value='%system.teamcity.buildType.id%']"        
         if 'BUILDID' in os.environ and 'BUILDTYPEID' in os.environ:
-            artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
+            artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID'), os.environ.get('BUILDTYPEID'))
+            #artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
             email_message += "\n   TeamCity Artifacts: \n   %s" % artifacts_weblink
                 
         print email_message
         
         msg = MIMEText(email_message,"\n\n")
         
-        me = 'talliskane@gmail.com' 
+        me = 'DVT-AUTOMATION@ADTRAN.COM' 
         you = 'tallis.vanek@adtran.com'
 
         msg['Subject'] = "<%s %s>" % (email_type, suite_result)
