@@ -90,6 +90,7 @@ class PyroFactory():
         print '(PyroFactory) ----------------> ........ <-----------------'
         print '(PyroFactory) ----------------> Starting <-----------------'
         print '(PyroFactory) ----------------> ........ <-----------------'
+        self._workspace = "unknown"
         pass
         
     def run(self,config):
@@ -127,6 +128,8 @@ class PyroFactory():
         workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
         testspace_home = os.path.join(workspace_home, suite_name)
         absolute_payload = os.path.join(os.path.realpath(base_dir), relative_payload)
+        
+        self._workspace = workspace_home
         
         pyarg_variable_file = os.path.join(self._config.DEFAULT_TOPOLOGY_FOLDER, self._config.DEFAULT_TOPOLOGY)
         pybot_argstring = "--variablefile %s" % pyarg_variable_file
@@ -188,9 +191,9 @@ class PyroFactory():
         print '(PyroFactory) ----------------> Finishing <-----------------'
         print '(PyroFactory) ----------------> ......... <-----------------'
       
-    def send_email(self, workspace_home):
+    def send_email(self, workspace_home=self._workspace):
         #verbose_stream = sys.stdout
-        print "(PyroFactory) [send_email]: Email Results"        
+        print "(PyroFactory) [send_email]: Email Results (%s)" % self._workspace        
 
         # determine if this is weekly or nightly
         email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Unknown')
