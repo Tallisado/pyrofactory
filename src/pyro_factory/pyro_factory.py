@@ -3,9 +3,6 @@
  #WORKSPACE_UID=WEEKLY_DEV_%env.BUILD_NUMBER% BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python /mnt/wt/pyrobot_2/pyrobot/pyrobot.py
  
 # imports
-# from robot.running import TestSuite
-# from robot import utils
-# from robot.conf import settings
 from robot.api import ExecutionResult
 import os, glob
 import subprocess
@@ -13,20 +10,14 @@ import time
 from datetime import datetime
 from xml.dom import minidom
 import sys
-# import getopt
-# import fileinput
 import random
 import string
 import random
 import shutil
-
-#import pyrobot_config as config
-###from browser_data import *
 import imp
+
 from browser_data import BrowserData
 from robot_results_parser import RobotResultsParser
-#foo = imp.load_source('browser_data', '/mnt/wt/pyrobot_2/pyrofactory/src/pyro_factory/browser_data.py')
-#from sauce_rest import *
 
 # send_mail    
 # Import smtplib for the actual sending function
@@ -165,18 +156,12 @@ class PyroFactory():
         
         #print out the OnDemand string for teamcity
         print os.environ.get('ONDEMAND_PYRO')
-
-        
-        # output = os.path.join(testspace_home, "%s_OUTPUT.xml" % suite_name)
-        # report = os.path.join(testspace_home, "%s_REPORT.html" % suite_name)
-        # log = os.path.join(testspace_home, "%s_LOG.html" % suite_name)      
         
         output = "%s_OUTPUT.xml" % suite_name
         report = "%s_REPORT.html" % suite_name
         log = "%s_LOG.html" % suite_name
         
         reportRC = self.generateReportAndLog(workspace_home, output, log, report, " ", suite_name) 
-        #send_email(testspace_home, workspace_home, output
         
         # delete XML output files after generating the report / log (if report generation
         # returned zero)
