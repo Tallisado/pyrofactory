@@ -193,25 +193,28 @@ class PyroFactory():
       
     def send_email(self):
         #verbose_stream = sys.stdout
-        workspace_home=self._workspace
         print "(PyroFactory) [send_email]: Email Results (%s)" % self._workspace        
 
         # determine if this is weekly or nightly
-        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Unknown')
+        email_from = 'DVT-AUTOMATION@ADTRAN.COM' 
+        email_to = 'tallis.vanek@adtran.com'
+        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE')
         if 'nightly' in email_type:
-            email_type = 'Nightly'
+            email_type = 'Nightly'            
         elif 'weekly' in email_type:
             email_type = 'Weekly'
             
+        if 'live' in email_to:
+                email_to = 'UC Testers <UCTesters@adtran.com>; UC Developers <UCDevelopers@adtran.com>'    
+        
         email_message = "Automation Summary:\n\n"        
         
         verbose_stream = None
         rrp = RobotResultsParser(False, verbose_stream)
         robot_results = []
-        #working_dir = '/mnt/wt/pyrobot_v1.1/pyrobot/workspace/tester'
-        for dirname in os.walk(workspace_home).next()[1]:
+        for dirname in os.walk(self._workspace).next()[1]:
             print dirname
-            test_dir = os.path.join(workspace_home,dirname)
+            test_dir = os.path.join(self._workspace,dirname)
             for file in os.listdir(test_dir):
                 if file.endswith(".xml"):
                     print file
@@ -238,14 +241,14 @@ class PyroFactory():
         if 'TEAMCITY_VERSION' in os.environ:
             artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
             #artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
-            email_message += "\n   TeamCity Artifacts: \n   %s" % artifacts_weblink
+            email_message += "\n  TeamCity Artifacts: \n   %s" % artifacts_weblink
                 
         print email_message
         
         msg = MIMEText(email_message,"\n\n")
         
-        me = 'DVT-AUTOMATION@ADTRAN.COM' 
-        you = 'tallis.vanek@adtran.com'
+        me = email_from
+        you = email_to
 
         msg['Subject'] = "<%s %s>" % (email_type, suite_result)
         msg['From'] = me
@@ -257,7 +260,7 @@ class PyroFactory():
         s.sendmail(me, [you], msg.as_string())
         s.quit()
     
-    def usage():
+    def usage(self):
         """ Prints usage information for PyroFactory """
         print ""
         print "Usage: python pyrobot.py [options] <testsuite_dir|testfile.txt>"
