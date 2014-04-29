@@ -208,7 +208,8 @@ class PyroFactory():
 
         # determine if this is weekly or nightly
         email_from = 'DVT-AUTOMATION@ADTRAN.COM' 
-        email_to = 'tallis.vanek@adtran.com'
+        #email_to = 'tallis.vanek@adtran.com; michael.lerner@adtran.com'
+        email_to = 'tallis.vanek@adtran.com, talliskane@gmail.com'
         email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE')
         if 'nightly' in email_type:
             email_type = 'Nightly'            
@@ -216,7 +217,7 @@ class PyroFactory():
             email_type = 'Weekly'
             
         if 'live' in email_to:
-                email_to = 'UC Testers <UCTesters@adtran.com>; UC Developers <UCDevelopers@adtran.com>'    
+                email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>'    
         
         email_message = "Automation Summary:\n\n"        
         
