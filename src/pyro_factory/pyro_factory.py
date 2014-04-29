@@ -84,19 +84,45 @@ class PyroFactory():
         self._workspace = "unknown"
         pass
         
-    def run(self,config):
-        self._config = config
+    def getCmdlineArgs(self):
+        """ Captures the envronment variables set on the commandline
+        If it is to be used in the factory, it is assigned a variable, if not it will be referenced by env in library level (testcode)
+        """
+        
+        show_usage = False
+        usage_tag = ""
+        
         try:
-            browser_data = BrowserData(self._config)
             if 'PAYLOAD' in os.environ:
-                relative_payload = os.environ.get('PAYLOAD')
+                self._relpayload = os.environ.get('PAYLOAD')
             else:
-                raise NameError('(PyroFactory)[run] RUNTIME ERROR: PAYLOAD is a mandatory environment variable')
-            os.environ['ONDEMAND_PYRO'] = "PLACEHOLDER_ONDEMAND_STRING"
+                show_usage = True
+                usage_tag = "PAYLOAD"
+                raise error('(PyroFactory)[run] RUNTIME ERROR: PAYLOAD is a mandatory environment variable')
+            
+            # can be set in import
+            # Sets Selenium 2's default implicit wait in seconds and sets the implicit wait for all open browsers
+            if 'IMPLICIT_WAIT' in os.environ:
+                self._implicit_wait = os.environ.get('IMPLICIT_WAIT')
+            # Sets the delay in seconds that is waited after each Selenium command
+            # This is useful mainly in slowing down the test execution to be able to view the execution. seconds may be given in Robot Framework time format. Returns the previous speed value.
+            if 'COMMAND_DELAY' in os.environ:
+                self._command_delay = os.environ.get('COMMAND_DELAY')
+            # Sets the timeout in seconds used by various keywords
+            # There are several Wait ... keywords that take timeout as an argument. All of these timeout arguments are optional. The timeout used by all of them can be set globally using this keyword. See introduction for more information about timeouts.
+            # can be set in import
+            if 'KEYWORD_TIMEOUT' in os.environ:
+                self._keyword_timeout = os.environ.get('KEYWORD_TIMEOUT')          
         except:
-            raise error('PAYLOAD must be a real txt file or directory!')
             self.usage()
             sys.exit(2)
+        
+    def run(self,config):
+        self._config = config
+        browser_data = BrowserData(self._config)
+        self.getCmdlineArgs()
+        
+        os.environ['ONDEMAND_PYRO'] = "PLACEHOLDER_ONDEMAND_STRING"
         
         # save current time to calculate execution time at the end of the script
         startTime = datetime.now()
@@ -108,7 +134,7 @@ class PyroFactory():
         base_dir = "./"
         pybots = []
         
-        suite_name = os.path.basename(os.path.normpath(relative_payload))
+        suite_name = os.path.basename(os.path.normpath(self._relpayload))
         if '.' in suite_name:
             suite_name = os.path.splitext(suite_name)[0]
             
@@ -118,7 +144,7 @@ class PyroFactory():
         uid = os.environ.get("WORKSPACE_UID", ''.join(random.choice(string.ascii_uppercase) for i in range(12)))
         workspace_home = os.path.join(self._config.WORKSPACE_HOME, uid)
         testspace_home = os.path.join(workspace_home, suite_name)
-        absolute_payload = os.path.join(os.path.realpath(base_dir), relative_payload)
+        absolute_payload = os.path.join(os.path.realpath(base_dir), self._relpayload)
         
         self._workspace = workspace_home
         
@@ -129,8 +155,8 @@ class PyroFactory():
         print '(PyroFactory)[run][RUNTIME] Client CWD:       %s' % client_cwd
         print '(PyroFactory)[run][RUNTIME] Workspace Home:   %s' % workspace_home
         print '(PyroFactory)[run][RUNTIME] Testspace Home:   %s' % testspace_home
-        print '(PyroFactory)[run][RUNTIME] relative_payload: %s' % relative_payload
-        print '(PyroFactory)[run][RUNTIME] absolute_payload: %s' % absolute_payload
+        print '(PyroFactory)[run][RUNTIME] relative payload: %s' % self._relpayload
+        print '(PyroFactory)[run][RUNTIME] absolute payload: %s' % absolute_payload
         
         if not os.path.exists(absolute_payload):
             print '(PyroFactory) [run] payload absolute path must exist! '
