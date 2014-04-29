@@ -261,18 +261,14 @@ class PyroFactory():
         print email_message
         
         msg = MIMEText(email_message,"\n\n")
-        
-        me = email_from
-        you = email_to
-
         msg['Subject'] = "<%s %s>" % (email_type, suite_result)
-        msg['From'] = me
-        msg['To'] = you
+        msg['From'] = email_from
+        msg['To'] = ", ".join(email_to)
 
         # Send the message via our own SMTP server, but don't include the
         # envelope header.
         s = smtplib.SMTP('localhost')
-        s.sendmail(me, you, msg.as_string())
+        s.sendmail(email_from, email_to, msg.as_string())
         s.quit()
     
     def usage(self):
