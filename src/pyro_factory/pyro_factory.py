@@ -112,7 +112,13 @@ class PyroFactory():
             # There are several Wait ... keywords that take timeout as an argument. All of these timeout arguments are optional. The timeout used by all of them can be set globally using this keyword. See introduction for more information about timeouts.
             # can be set in import
             if 'KEYWORD_TIMEOUT' in os.environ:
-                self._keyword_timeout = os.environ.get('KEYWORD_TIMEOUT')          
+                self._keyword_timeout = os.environ.get('KEYWORD_TIMEOUT') 
+            
+            # SAUCE SCREEN RESOLUTIONS
+            # Valid values for Windows XP, Windows 7, and OSX 10.6 are: "800x600", "1024x768", "1280x1024", "1440x900" and "1920x1200".
+            # Valid values for OSX 10.8 are: "1024x768", "1280x1024", "1400x900", and "1920x1200".
+            # Valid values for Windows 8/8.1 are "1024x768" and "1280x1024"
+            
         except:
             self.usage()
             sys.exit(2)
