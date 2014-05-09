@@ -221,7 +221,7 @@ class PyroFactory():
         elif 'weekly' in email_type:
             email_type = 'Weekly'
             
-        if 'live' in email_to:
+        if 'live' in email_type:
                 email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
         
         print "(PyroFactory) [send_email]: Email List =" 
