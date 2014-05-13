@@ -109,7 +109,7 @@ class PyroTestResult():
                 return False
         return True    
     def get_name(self, email_type):
-        if email_type.lower() == 'nightly':
+        if 'nightly' in email_type.lower():
             return "%s" % (self.suite_name.split('/')[-1])
         else:
             return "%s (%s)" % (self.caps_name, self.suite_name.split('/')[-1])

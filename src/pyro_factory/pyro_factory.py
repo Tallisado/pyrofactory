@@ -223,7 +223,7 @@ class PyroFactory():
         constructed_email_results = ConstructEmailResults(self._workspace)
         
         msg = "Automation Summary:\n\n" 
-        msg += "\n\nTotal tests: %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
+        msg += "Total tests: %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
 
         for i, pyro_result in enumerate(constructed_email_results.pyro_results):
             msg += "  %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
