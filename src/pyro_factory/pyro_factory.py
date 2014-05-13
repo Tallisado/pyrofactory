@@ -208,9 +208,9 @@ class PyroFactory():
         print '(PyroFactory) ----------------> Finishing <-----------------'
         print '(PyroFactory) ----------------> ......... <-----------------'
       
-    def send_email(self):
+    def send_email(self, workspace_home):
         #verbose_stream = sys.stdout
-        print "(PyroFactory) [send_email]: Email Results (%s)" % self._workspace        
+        print "(PyroFactory) [send_email]: Email Results (%s)" % workspace_home        
 
         # determine if this is weekly or nightly
         email_from = 'DVT-AUTOMATION@ADTRAN.COM' 
@@ -220,7 +220,7 @@ class PyroFactory():
         if 'live' in email_type:
             email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
 
-        constructed_email_results = ConstructEmailResults(self._workspace)
+        constructed_email_results = ConstructEmailResults(workspace_home)
         
         msg = "Automation Summary:\n\n" 
         msg += "Total tests: %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
