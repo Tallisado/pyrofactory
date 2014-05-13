@@ -223,7 +223,7 @@ class PyroFactory():
         constructed_email_results = ConstructEmailResults(workspace_home)
         
         msg = "Automation Summary:\n\n" 
-        msg += "Total tests: %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
+        msg += "Total tests:  %s\n\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
 
         for i, pyro_result in enumerate(constructed_email_results.pyro_results):
             msg += "  %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
@@ -234,7 +234,7 @@ class PyroFactory():
                 testsuite_passed = False
                 msg += "  %s\r\n" % (pyro_result.get_name(email_type))
 
-        msg += "\n\nResults that have (PASSED):\n"
+        msg += "\nResults that have (PASSED):\n"
         for pyro_result in constructed_email_results.pyro_results:
             if pyro_result.test_statuses_passed():    
                 msg += "  %s\r\n" % (pyro_result.get_name(email_type))
@@ -243,8 +243,8 @@ class PyroFactory():
             artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
             buildlog_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=buildLog" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
             #artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
-            msg += "\n  TeamCity Artifacts: \n   %s" % artifacts_weblink        
-            msg += "\n  TeamCity BuildLogs: \n   %s" % buildlog_weblink        
+            msg += "\n\nTeamCity Artifacts: \n   %s" % artifacts_weblink        
+            msg += "\nTeamCity BuildLogs: \n   %s" % buildlog_weblink        
 
         msg += "\n\nDetailed Failure Results:\n"    
         for pyro_result in constructed_email_results.pyro_results:
