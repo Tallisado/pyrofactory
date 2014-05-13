@@ -215,7 +215,8 @@ class PyroFactory():
         # determine if this is weekly or nightly
         email_from = 'DVT-AUTOMATION@ADTRAN.COM' 
         email_to = ['tallis.vanek@adtran.com', 'michael.lerner@adtran.com']
-        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE')      
+        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE') 
+        testsuite_passed = True
         if 'live' in email_type:
             email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
 
@@ -230,6 +231,7 @@ class PyroFactory():
         msg += "\nResults that have (FAILED):\n"
         for pyro_result in constructed_email_results.pyro_results:
             if not pyro_result.test_statuses_passed():    
+                testsuite_passed = False
                 msg += "  %s\r\n" % (pyro_result.get_name(email_type))
 
         msg += "\n\nResults that have (PASSED):\n"
@@ -251,7 +253,7 @@ class PyroFactory():
                    msg += "(%s) %s | %s\n" % (pyro_result.get_name(email_type), pyro_result.test_names[i], pyro_result.fail_messages[i])  
         
         msg = MIMEText(msg,"\n\n")
-        msg['Subject'] = "<%s %s>" % (email_type, suite_result)
+        msg['Subject'] = "<%s %s>" % (email_type, 'PASSED' if testsuite_passed else 'FAILED')
         msg['From'] = email_from
         msg['To'] = ", ".join(email_to)
 
