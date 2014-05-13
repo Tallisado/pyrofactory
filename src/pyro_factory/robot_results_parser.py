@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from hashlib import sha1
 #from robot.api import ExecutionResult
