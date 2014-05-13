@@ -17,7 +17,7 @@ import shutil
 import imp
 
 from browser_data import BrowserData
-from robot_results_parser import RobotResultsParser
+from robot_results_parser import ConstructEmailResults
 
 # send_mail    
 # Import smtplib for the actual sending function
@@ -216,7 +216,9 @@ class PyroFactory():
         email_from = 'DVT-AUTOMATION@ADTRAN.COM' 
         email_to = ['tallis.vanek@adtran.com', 'michael.lerner@adtran.com']
         email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE')      
-        
+        if 'live' in email_type:
+            email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
+
         constructed_email_results = ConstructEmailResults(example)
         
         msg = "Automation Summary:\n\n" 
