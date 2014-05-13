@@ -219,7 +219,7 @@ class PyroFactory():
         if 'live' in email_type:
             email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
 
-        constructed_email_results = ConstructEmailResults(example)
+        constructed_email_results = ConstructEmailResults(self._workspace)
         
         msg = "Automation Summary:\n\n" 
         msg += "\n\nTotal tests: %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
