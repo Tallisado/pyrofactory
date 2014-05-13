@@ -1,0 +1,3379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140512 15:42:02.950" generator="Robot 2.8.4 (Python 2.7.3 on linux2)">
+<suite source="/home/pyrobot/dev/ui/restore_backup" id="s1" name="firefox Linux localver">
+<suite source="/home/pyrobot/dev/ui/restore_backup/01__uiaccessibility_UI.txt" id="s1-s1" name="uiaccessibility UI">
+<test id="s1-s1-t1" name="Go to Neo">
+<kw type="kw" name="Open Browser to ${Neo}">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20140512 15:42:03.163" level="INFO">Opening browser 'firefox' to base url 'http://admin:password@10.10.9.129'</msg>
+<status status="PASS" endtime="20140512 15:42:09.052" starttime="20140512 15:42:03.163"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Maximize Browser Window">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:42:09.064" starttime="20140512 15:42:09.053"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" endtime="20140512 15:42:09.065" starttime="20140512 15:42:09.064"></status>
+</kw>
+<status status="PASS" endtime="20140512 15:42:09.065" starttime="20140512 15:42:03.162"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140512 15:42:09.066" critical="yes" starttime="20140512 15:42:03.160"></status>
+</test>
+<test id="s1-s1-t2" name="Go to Login Page">
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${DEVICE_IP}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:09.068" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<status status="PASS" endtime="20140512 15:42:12.971" starttime="20140512 15:42:09.068"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140512 15:42:12.972" critical="yes" starttime="20140512 15:42:09.066"></status>
+</test>
+<test id="s1-s1-t3" name="Check Login Page">
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>loginnameid-inputEl</arg>
+<arg>timeout=5</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:19.977" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:42:19.977" starttime="20140512 15:42:18.834"></status>
+</kw>
+<msg timestamp="20140512 15:42:19.978" level="FAIL">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:42:19.978" starttime="20140512 15:42:12.974"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:19.979" critical="yes" starttime="20140512 15:42:12.972">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:42:20.996" starttime="20140512 15:42:19.980"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:42:20.996" starttime="20140512 15:42:02.991"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/restore_backup/02__Download_Backup_FTP.txt" id="s1-s2" name="Download Backup FTP">
+<test id="s1-s2-t1" name="Erase Local Backup">
+<kw type="kw" name="OperatingSystem.Run">
+<doc>Runs the given command in the system and returns the output.</doc>
+<arguments>
+<arg>rm /tmp/neo.backup</arg>
+</arguments>
+<msg timestamp="20140512 15:42:21.042" level="INFO">Running command 'rm /tmp/neo.backup 2&gt;&amp;1'</msg>
+<status status="PASS" endtime="20140512 15:42:21.047" starttime="20140512 15:42:21.040"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140512 15:42:21.048" critical="yes" starttime="20140512 15:42:21.038"></status>
+</test>
+<test id="s1-s2-t2" name="Connect to FTP">
+<kw type="kw" name="FtpLibrary.Ftp Connect">
+<doc>Constructs FTP object, opens a connection and login.</doc>
+<arguments>
+<arg>${DEVICE_IP}</arg>
+<arg>${FTP_USER_NAME}</arg>
+<arg>${FTP_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20140512 15:42:24.076" level="FAIL">FtpLibraryError: Socket error exception occured.</msg>
+<status status="FAIL" endtime="20140512 15:42:24.076" starttime="20140512 15:42:21.050"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.076" critical="yes" starttime="20140512 15:42:21.048">FtpLibraryError: Socket error exception occured.</status>
+</test>
+<test id="s1-s2-t3" name="Change to backup directory">
+<kw type="kw" name="FtpLibrary.Cwd">
+<doc>Changes working directory and returns server output. Parameters:</doc>
+<arguments>
+<arg>/backup</arg>
+</arguments>
+<msg timestamp="20140512 15:42:24.078" level="FAIL">FtpLibraryError: FTP connection was not established properly.</msg>
+<status status="FAIL" endtime="20140512 15:42:24.079" starttime="20140512 15:42:24.078"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.079" critical="yes" starttime="20140512 15:42:24.077">FtpLibraryError: FTP connection was not established properly.</status>
+</test>
+<test id="s1-s2-t4" name="Download Backup File">
+<kw type="kw" name="FtpLibrary.Download File">
+<doc>Downloads file from current directory on FTP server in binary mode. If</doc>
+<arguments>
+<arg>neo.backup</arg>
+<arg>localFilePath=/tmp/neo.backup</arg>
+</arguments>
+<msg timestamp="20140512 15:42:24.081" level="FAIL">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</msg>
+<status status="FAIL" endtime="20140512 15:42:24.081" starttime="20140512 15:42:24.080"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.081" critical="yes" starttime="20140512 15:42:24.079">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</status>
+</test>
+<test id="s1-s2-t5" name="Disconnect from FTP Server">
+<kw type="kw" name="FtpLibrary.Ftp Close">
+<doc>Closes FTP connection. Returns None.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:24.083" level="FAIL">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</msg>
+<status status="FAIL" endtime="20140512 15:42:24.083" starttime="20140512 15:42:24.083"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.083" critical="yes" starttime="20140512 15:42:24.082">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</status>
+</test>
+<doc>Download a backup from a NEO to test restore operation</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:42:24.084" starttime="20140512 15:42:20.998"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/restore_backup/03__Config_Assistant_Restore_Defaults_UI.txt" id="s1-s3" name="Config Assistant Restore Defaults UI">
+<test id="s1-s3-t1" name="Go to Neo">
+<kw type="kw" name="Open Browser to ${Neo}">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20140512 15:42:24.097" level="INFO">Opening browser 'firefox' to base url 'http://admin:password@10.10.9.129:81'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:24.775" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.775" starttime="20140512 15:42:24.743"></status>
+</kw>
+<msg timestamp="20140512 15:42:24.776" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.847" level="FAIL">error: [Errno 111] Connection refused</msg>
+<status status="FAIL" endtime="20140512 15:42:24.847" starttime="20140512 15:42:24.096"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:24.847" starttime="20140512 15:42:24.095"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.848" critical="yes" starttime="20140512 15:42:24.094">error: [Errno 111] Connection refused</status>
+</test>
+<test id="s1-s3-t2" name="Go to Wizard">
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>WizardToggleIcon</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:24.858" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.858" starttime="20140512 15:42:24.857"></status>
+</kw>
+<msg timestamp="20140512 15:42:24.858" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.859" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.859" starttime="20140512 15:42:24.857"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.859" critical="yes" starttime="20140512 15:42:24.855">No browser is open</status>
+</test>
+<test id="s1-s3-t3" name="Restore Factory Defaults">
+<kw type="kw" name="Selenium2Library.Wait Until Element Is Visible">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>new</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:24.862" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.862" starttime="20140512 15:42:24.861"></status>
+</kw>
+<msg timestamp="20140512 15:42:24.862" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.862" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.862" starttime="20140512 15:42:24.861"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:42:24.863" critical="yes" starttime="20140512 15:42:24.859">No browser is open</status>
+</test>
+<test id="s1-s3-t4" name="Wait For Unit To Restart">
+<kw type="kw" name="BuiltIn.Wait Until Keyword Succeeds">
+<doc>Waits until the specified keyword succeeds or the given timeout expires.</doc>
+<arguments>
+<arg>10 min</arg>
+<arg>5 sec</arg>
+<arg>Check UI ${DEVICE_IP}</arg>
+</arguments>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:24.867" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:24.867" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.868" starttime="20140512 15:42:24.867"></status>
+</kw>
+<msg timestamp="20140512 15:42:24.868" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.868" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:24.868" starttime="20140512 15:42:24.866"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:24.868" starttime="20140512 15:42:24.865"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:29.872" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:29.874" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:29.874" starttime="20140512 15:42:29.872"></status>
+</kw>
+<msg timestamp="20140512 15:42:29.875" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:29.875" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:29.875" starttime="20140512 15:42:29.871"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:29.875" starttime="20140512 15:42:29.870"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:34.878" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:34.881" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:34.881" starttime="20140512 15:42:34.879"></status>
+</kw>
+<msg timestamp="20140512 15:42:34.881" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:34.882" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:34.882" starttime="20140512 15:42:34.878"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:34.882" starttime="20140512 15:42:34.877"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:39.892" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:39.895" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:39.895" starttime="20140512 15:42:39.892"></status>
+</kw>
+<msg timestamp="20140512 15:42:39.895" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:39.895" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:39.896" starttime="20140512 15:42:39.891"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:39.896" starttime="20140512 15:42:39.889"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:44.899" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:44.902" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:44.902" starttime="20140512 15:42:44.899"></status>
+</kw>
+<msg timestamp="20140512 15:42:44.902" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:44.902" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:44.903" starttime="20140512 15:42:44.898"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:44.903" starttime="20140512 15:42:44.897"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:49.910" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:49.913" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:49.913" starttime="20140512 15:42:49.911"></status>
+</kw>
+<msg timestamp="20140512 15:42:49.913" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:49.913" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:49.914" starttime="20140512 15:42:49.910"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:49.914" starttime="20140512 15:42:49.909"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:54.916" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:54.920" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:54.920" starttime="20140512 15:42:54.917"></status>
+</kw>
+<msg timestamp="20140512 15:42:54.920" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:54.920" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:54.921" starttime="20140512 15:42:54.916"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:54.921" starttime="20140512 15:42:54.915"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:42:59.928" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:42:59.931" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:59.931" starttime="20140512 15:42:59.928"></status>
+</kw>
+<msg timestamp="20140512 15:42:59.931" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:59.931" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:42:59.931" starttime="20140512 15:42:59.928"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:42:59.932" starttime="20140512 15:42:59.926"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:04.939" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:04.942" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:04.942" starttime="20140512 15:43:04.940"></status>
+</kw>
+<msg timestamp="20140512 15:43:04.942" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:04.943" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:04.943" starttime="20140512 15:43:04.939"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:04.943" starttime="20140512 15:43:04.937"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:09.951" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:09.953" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:09.953" starttime="20140512 15:43:09.951"></status>
+</kw>
+<msg timestamp="20140512 15:43:09.954" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:09.954" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:09.954" starttime="20140512 15:43:09.950"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:09.954" starttime="20140512 15:43:09.949"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:14.962" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:14.965" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:14.965" starttime="20140512 15:43:14.962"></status>
+</kw>
+<msg timestamp="20140512 15:43:14.965" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:14.965" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:14.965" starttime="20140512 15:43:14.962"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:14.966" starttime="20140512 15:43:14.960"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:19.969" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:19.972" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:19.972" starttime="20140512 15:43:19.969"></status>
+</kw>
+<msg timestamp="20140512 15:43:19.972" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:19.972" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:19.973" starttime="20140512 15:43:19.969"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:19.973" starttime="20140512 15:43:19.967"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:24.981" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:24.983" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:24.983" starttime="20140512 15:43:24.981"></status>
+</kw>
+<msg timestamp="20140512 15:43:24.983" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:24.984" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:24.984" starttime="20140512 15:43:24.980"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:24.984" starttime="20140512 15:43:24.979"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:29.987" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:29.990" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:29.990" starttime="20140512 15:43:29.988"></status>
+</kw>
+<msg timestamp="20140512 15:43:29.990" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:29.991" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:29.991" starttime="20140512 15:43:29.987"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:29.991" starttime="20140512 15:43:29.986"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:34.999" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:35.001" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:35.002" starttime="20140512 15:43:34.999"></status>
+</kw>
+<msg timestamp="20140512 15:43:35.002" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:35.002" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:35.002" starttime="20140512 15:43:34.998"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:35.003" starttime="20140512 15:43:34.997"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:40.007" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:40.010" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:40.011" starttime="20140512 15:43:40.008"></status>
+</kw>
+<msg timestamp="20140512 15:43:40.011" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:40.012" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:40.012" starttime="20140512 15:43:40.007"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:40.012" starttime="20140512 15:43:40.005"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:45.016" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:45.019" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:45.019" starttime="20140512 15:43:45.017"></status>
+</kw>
+<msg timestamp="20140512 15:43:45.019" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:45.020" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:45.020" starttime="20140512 15:43:45.016"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:45.020" starttime="20140512 15:43:45.015"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:50.027" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:50.030" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:50.030" starttime="20140512 15:43:50.027"></status>
+</kw>
+<msg timestamp="20140512 15:43:50.030" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:50.031" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:50.031" starttime="20140512 15:43:50.027"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:50.031" starttime="20140512 15:43:50.025"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:43:55.037" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:43:55.040" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:55.040" starttime="20140512 15:43:55.038"></status>
+</kw>
+<msg timestamp="20140512 15:43:55.040" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:55.041" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:43:55.041" starttime="20140512 15:43:55.037"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:43:55.041" starttime="20140512 15:43:55.036"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:00.043" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:00.046" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:00.046" starttime="20140512 15:44:00.044"></status>
+</kw>
+<msg timestamp="20140512 15:44:00.046" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:00.047" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:00.047" starttime="20140512 15:44:00.043"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:00.047" starttime="20140512 15:44:00.042"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:05.050" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:05.053" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:05.053" starttime="20140512 15:44:05.051"></status>
+</kw>
+<msg timestamp="20140512 15:44:05.053" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:05.054" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:05.054" starttime="20140512 15:44:05.050"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:05.054" starttime="20140512 15:44:05.049"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:10.057" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:10.059" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:10.059" starttime="20140512 15:44:10.057"></status>
+</kw>
+<msg timestamp="20140512 15:44:10.060" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:10.060" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:10.060" starttime="20140512 15:44:10.056"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:10.060" starttime="20140512 15:44:10.055"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:15.068" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:15.071" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:15.071" starttime="20140512 15:44:15.069"></status>
+</kw>
+<msg timestamp="20140512 15:44:15.071" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:15.072" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:15.072" starttime="20140512 15:44:15.068"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:15.072" starttime="20140512 15:44:15.066"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:20.075" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:20.078" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:20.078" starttime="20140512 15:44:20.076"></status>
+</kw>
+<msg timestamp="20140512 15:44:20.078" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:20.079" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:20.079" starttime="20140512 15:44:20.075"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:20.079" starttime="20140512 15:44:20.074"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:25.082" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:25.085" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:25.086" starttime="20140512 15:44:25.082"></status>
+</kw>
+<msg timestamp="20140512 15:44:25.086" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:25.086" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:25.086" starttime="20140512 15:44:25.082"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:25.086" starttime="20140512 15:44:25.080"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:30.090" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:30.093" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:30.093" starttime="20140512 15:44:30.090"></status>
+</kw>
+<msg timestamp="20140512 15:44:30.093" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:30.094" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:30.094" starttime="20140512 15:44:30.089"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:30.094" starttime="20140512 15:44:30.088"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:35.101" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:35.104" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:35.104" starttime="20140512 15:44:35.102"></status>
+</kw>
+<msg timestamp="20140512 15:44:35.104" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:35.105" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:35.105" starttime="20140512 15:44:35.101"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:35.105" starttime="20140512 15:44:35.100"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:40.110" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:40.113" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:40.113" starttime="20140512 15:44:40.110"></status>
+</kw>
+<msg timestamp="20140512 15:44:40.114" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:40.114" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:40.114" starttime="20140512 15:44:40.109"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:40.115" starttime="20140512 15:44:40.107"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:45.117" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:45.119" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:45.120" starttime="20140512 15:44:45.117"></status>
+</kw>
+<msg timestamp="20140512 15:44:45.120" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:45.120" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:45.120" starttime="20140512 15:44:45.117"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:45.120" starttime="20140512 15:44:45.115"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:50.128" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:50.138" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:50.139" starttime="20140512 15:44:50.129"></status>
+</kw>
+<msg timestamp="20140512 15:44:50.139" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:50.140" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:50.140" starttime="20140512 15:44:50.128"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:50.140" starttime="20140512 15:44:50.126"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:44:55.147" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:44:55.151" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:55.151" starttime="20140512 15:44:55.147"></status>
+</kw>
+<msg timestamp="20140512 15:44:55.151" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:55.151" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:44:55.152" starttime="20140512 15:44:55.146"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:44:55.152" starttime="20140512 15:44:55.145"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:00.160" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:00.163" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:00.163" starttime="20140512 15:45:00.160"></status>
+</kw>
+<msg timestamp="20140512 15:45:00.163" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:00.164" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:00.164" starttime="20140512 15:45:00.159"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:00.164" starttime="20140512 15:45:00.158"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:05.168" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:05.172" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:05.172" starttime="20140512 15:45:05.168"></status>
+</kw>
+<msg timestamp="20140512 15:45:05.172" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:05.173" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:05.173" starttime="20140512 15:45:05.167"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:05.173" starttime="20140512 15:45:05.165"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:10.181" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:10.184" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:10.184" starttime="20140512 15:45:10.181"></status>
+</kw>
+<msg timestamp="20140512 15:45:10.184" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:10.184" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:10.185" starttime="20140512 15:45:10.180"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:10.185" starttime="20140512 15:45:10.179"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:15.188" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:15.191" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:15.191" starttime="20140512 15:45:15.188"></status>
+</kw>
+<msg timestamp="20140512 15:45:15.191" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:15.191" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:15.191" starttime="20140512 15:45:15.187"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:15.192" starttime="20140512 15:45:15.186"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:20.195" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:20.198" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:20.198" starttime="20140512 15:45:20.195"></status>
+</kw>
+<msg timestamp="20140512 15:45:20.198" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:20.198" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:20.198" starttime="20140512 15:45:20.195"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:20.199" starttime="20140512 15:45:20.193"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:25.201" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:25.204" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:25.204" starttime="20140512 15:45:25.202"></status>
+</kw>
+<msg timestamp="20140512 15:45:25.204" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:25.205" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:25.205" starttime="20140512 15:45:25.201"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:25.205" starttime="20140512 15:45:25.200"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:30.208" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:30.211" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:30.211" starttime="20140512 15:45:30.209"></status>
+</kw>
+<msg timestamp="20140512 15:45:30.212" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:30.212" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:30.212" starttime="20140512 15:45:30.208"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:30.212" starttime="20140512 15:45:30.207"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:35.215" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:35.218" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:35.218" starttime="20140512 15:45:35.215"></status>
+</kw>
+<msg timestamp="20140512 15:45:35.218" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:35.218" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:35.218" starttime="20140512 15:45:35.215"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:35.219" starttime="20140512 15:45:35.213"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:40.223" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:40.226" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:40.226" starttime="20140512 15:45:40.223"></status>
+</kw>
+<msg timestamp="20140512 15:45:40.226" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:40.226" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:40.227" starttime="20140512 15:45:40.223"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:40.227" starttime="20140512 15:45:40.221"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:45.234" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:45.237" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:45.237" starttime="20140512 15:45:45.235"></status>
+</kw>
+<msg timestamp="20140512 15:45:45.238" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:45.238" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:45.238" starttime="20140512 15:45:45.234"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:45.238" starttime="20140512 15:45:45.233"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:50.241" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:50.244" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:50.244" starttime="20140512 15:45:50.241"></status>
+</kw>
+<msg timestamp="20140512 15:45:50.244" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:50.244" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:50.244" starttime="20140512 15:45:50.241"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:50.245" starttime="20140512 15:45:50.239"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:45:55.252" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:45:55.255" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:55.255" starttime="20140512 15:45:55.253"></status>
+</kw>
+<msg timestamp="20140512 15:45:55.255" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:55.256" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:45:55.256" starttime="20140512 15:45:55.252"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:45:55.256" starttime="20140512 15:45:55.251"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:00.264" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:00.267" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:00.267" starttime="20140512 15:46:00.264"></status>
+</kw>
+<msg timestamp="20140512 15:46:00.267" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:00.268" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:00.268" starttime="20140512 15:46:00.263"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:00.268" starttime="20140512 15:46:00.262"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:05.276" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:05.279" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:05.279" starttime="20140512 15:46:05.276"></status>
+</kw>
+<msg timestamp="20140512 15:46:05.279" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:05.279" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:05.279" starttime="20140512 15:46:05.275"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:05.280" starttime="20140512 15:46:05.274"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:10.288" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:10.291" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:10.291" starttime="20140512 15:46:10.288"></status>
+</kw>
+<msg timestamp="20140512 15:46:10.291" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:10.291" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:10.291" starttime="20140512 15:46:10.287"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:10.292" starttime="20140512 15:46:10.285"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:15.295" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:15.298" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:15.298" starttime="20140512 15:46:15.295"></status>
+</kw>
+<msg timestamp="20140512 15:46:15.298" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:15.298" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:15.299" starttime="20140512 15:46:15.295"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:15.299" starttime="20140512 15:46:15.293"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:20.307" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:20.309" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:20.310" starttime="20140512 15:46:20.307"></status>
+</kw>
+<msg timestamp="20140512 15:46:20.310" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:20.310" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:20.310" starttime="20140512 15:46:20.306"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:20.310" starttime="20140512 15:46:20.305"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:25.318" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:25.320" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:25.321" starttime="20140512 15:46:25.318"></status>
+</kw>
+<msg timestamp="20140512 15:46:25.321" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:25.321" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:25.321" starttime="20140512 15:46:25.317"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:25.321" starttime="20140512 15:46:25.316"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:30.329" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:30.332" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:30.332" starttime="20140512 15:46:30.329"></status>
+</kw>
+<msg timestamp="20140512 15:46:30.332" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:30.332" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:30.332" starttime="20140512 15:46:30.328"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:30.333" starttime="20140512 15:46:30.327"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:35.340" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:35.343" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:35.343" starttime="20140512 15:46:35.341"></status>
+</kw>
+<msg timestamp="20140512 15:46:35.343" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:35.343" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:35.344" starttime="20140512 15:46:35.340"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:35.344" starttime="20140512 15:46:35.338"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:40.353" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:40.356" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:40.356" starttime="20140512 15:46:40.353"></status>
+</kw>
+<msg timestamp="20140512 15:46:40.356" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:40.357" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:40.357" starttime="20140512 15:46:40.352"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:40.357" starttime="20140512 15:46:40.350"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:45.365" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:45.368" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:45.368" starttime="20140512 15:46:45.365"></status>
+</kw>
+<msg timestamp="20140512 15:46:45.368" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:45.368" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:45.368" starttime="20140512 15:46:45.364"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:45.369" starttime="20140512 15:46:45.363"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:50.372" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:50.375" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:50.375" starttime="20140512 15:46:50.372"></status>
+</kw>
+<msg timestamp="20140512 15:46:50.375" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:50.375" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:50.375" starttime="20140512 15:46:50.371"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:50.376" starttime="20140512 15:46:50.370"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:46:55.379" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:46:55.381" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:55.381" starttime="20140512 15:46:55.379"></status>
+</kw>
+<msg timestamp="20140512 15:46:55.382" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:55.382" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:46:55.382" starttime="20140512 15:46:55.378"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:46:55.382" starttime="20140512 15:46:55.377"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:00.390" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:00.392" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:00.392" starttime="20140512 15:47:00.390"></status>
+</kw>
+<msg timestamp="20140512 15:47:00.393" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:00.393" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:00.393" starttime="20140512 15:47:00.389"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:00.393" starttime="20140512 15:47:00.388"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:05.401" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:05.404" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:05.404" starttime="20140512 15:47:05.401"></status>
+</kw>
+<msg timestamp="20140512 15:47:05.404" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:05.404" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:05.404" starttime="20140512 15:47:05.400"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:05.405" starttime="20140512 15:47:05.399"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:10.410" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:10.412" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:10.413" starttime="20140512 15:47:10.410"></status>
+</kw>
+<msg timestamp="20140512 15:47:10.413" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:10.413" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:10.413" starttime="20140512 15:47:10.409"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:10.413" starttime="20140512 15:47:10.408"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:15.417" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:15.419" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:15.419" starttime="20140512 15:47:15.417"></status>
+</kw>
+<msg timestamp="20140512 15:47:15.419" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:15.420" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:15.420" starttime="20140512 15:47:15.416"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:15.420" starttime="20140512 15:47:15.415"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:20.428" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:20.430" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:20.430" starttime="20140512 15:47:20.428"></status>
+</kw>
+<msg timestamp="20140512 15:47:20.431" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:20.431" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:20.431" starttime="20140512 15:47:20.427"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:20.431" starttime="20140512 15:47:20.426"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:25.439" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:25.441" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:25.441" starttime="20140512 15:47:25.439"></status>
+</kw>
+<msg timestamp="20140512 15:47:25.441" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:25.442" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:25.442" starttime="20140512 15:47:25.438"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:25.442" starttime="20140512 15:47:25.437"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:30.450" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:30.453" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:30.453" starttime="20140512 15:47:30.450"></status>
+</kw>
+<msg timestamp="20140512 15:47:30.453" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:30.453" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:30.453" starttime="20140512 15:47:30.450"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:30.454" starttime="20140512 15:47:30.448"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:35.459" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:35.461" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:35.461" starttime="20140512 15:47:35.459"></status>
+</kw>
+<msg timestamp="20140512 15:47:35.462" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:35.462" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:35.462" starttime="20140512 15:47:35.458"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:35.462" starttime="20140512 15:47:35.457"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:40.467" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:40.470" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:40.470" starttime="20140512 15:47:40.467"></status>
+</kw>
+<msg timestamp="20140512 15:47:40.470" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:40.470" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:40.470" starttime="20140512 15:47:40.466"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:40.471" starttime="20140512 15:47:40.464"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:45.473" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:45.476" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:45.476" starttime="20140512 15:47:45.474"></status>
+</kw>
+<msg timestamp="20140512 15:47:45.476" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:45.477" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:45.477" starttime="20140512 15:47:45.473"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:45.477" starttime="20140512 15:47:45.472"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:50.480" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:50.483" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:50.483" starttime="20140512 15:47:50.481"></status>
+</kw>
+<msg timestamp="20140512 15:47:50.483" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:50.484" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:50.484" starttime="20140512 15:47:50.480"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:50.484" starttime="20140512 15:47:50.479"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:47:55.492" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:47:55.494" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:55.495" starttime="20140512 15:47:55.492"></status>
+</kw>
+<msg timestamp="20140512 15:47:55.495" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:55.495" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:47:55.495" starttime="20140512 15:47:55.491"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:47:55.495" starttime="20140512 15:47:55.490"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:00.498" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:00.501" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:00.501" starttime="20140512 15:48:00.499"></status>
+</kw>
+<msg timestamp="20140512 15:48:00.501" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:00.502" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:00.502" starttime="20140512 15:48:00.498"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:00.502" starttime="20140512 15:48:00.497"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:05.505" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:05.508" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:05.508" starttime="20140512 15:48:05.505"></status>
+</kw>
+<msg timestamp="20140512 15:48:05.508" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:05.508" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:05.509" starttime="20140512 15:48:05.505"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:05.509" starttime="20140512 15:48:05.503"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:10.516" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:10.519" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:10.519" starttime="20140512 15:48:10.516"></status>
+</kw>
+<msg timestamp="20140512 15:48:10.519" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:10.519" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:10.519" starttime="20140512 15:48:10.516"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:10.520" starttime="20140512 15:48:10.514"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:15.522" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:15.525" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:15.525" starttime="20140512 15:48:15.523"></status>
+</kw>
+<msg timestamp="20140512 15:48:15.525" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:15.525" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:15.525" starttime="20140512 15:48:15.522"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:15.526" starttime="20140512 15:48:15.521"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:20.533" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:20.536" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:20.536" starttime="20140512 15:48:20.533"></status>
+</kw>
+<msg timestamp="20140512 15:48:20.536" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:20.536" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:20.536" starttime="20140512 15:48:20.533"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:20.537" starttime="20140512 15:48:20.531"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:25.539" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:25.542" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:25.542" starttime="20140512 15:48:25.540"></status>
+</kw>
+<msg timestamp="20140512 15:48:25.542" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:25.543" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:25.543" starttime="20140512 15:48:25.539"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:25.543" starttime="20140512 15:48:25.538"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:30.546" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:30.549" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:30.549" starttime="20140512 15:48:30.547"></status>
+</kw>
+<msg timestamp="20140512 15:48:30.549" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:30.549" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:30.549" starttime="20140512 15:48:30.546"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:30.550" starttime="20140512 15:48:30.545"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:35.553" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:35.555" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:35.555" starttime="20140512 15:48:35.553"></status>
+</kw>
+<msg timestamp="20140512 15:48:35.555" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:35.556" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:35.556" starttime="20140512 15:48:35.552"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:35.556" starttime="20140512 15:48:35.551"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:40.563" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:40.565" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:40.565" starttime="20140512 15:48:40.563"></status>
+</kw>
+<msg timestamp="20140512 15:48:40.566" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:40.566" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:40.566" starttime="20140512 15:48:40.562"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:40.566" starttime="20140512 15:48:40.561"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:45.575" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:45.578" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:45.578" starttime="20140512 15:48:45.576"></status>
+</kw>
+<msg timestamp="20140512 15:48:45.578" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:45.579" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:45.579" starttime="20140512 15:48:45.574"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:45.579" starttime="20140512 15:48:45.573"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:50.582" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:50.585" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:50.585" starttime="20140512 15:48:50.583"></status>
+</kw>
+<msg timestamp="20140512 15:48:50.585" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:50.586" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:50.586" starttime="20140512 15:48:50.582"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:50.586" starttime="20140512 15:48:50.581"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:48:55.594" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:48:55.597" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:55.597" starttime="20140512 15:48:55.594"></status>
+</kw>
+<msg timestamp="20140512 15:48:55.597" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:55.597" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:48:55.597" starttime="20140512 15:48:55.593"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:48:55.597" starttime="20140512 15:48:55.592"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:00.601" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:00.603" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:00.604" starttime="20140512 15:49:00.601"></status>
+</kw>
+<msg timestamp="20140512 15:49:00.604" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:00.604" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:00.604" starttime="20140512 15:49:00.600"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:00.605" starttime="20140512 15:49:00.599"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:05.607" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:05.610" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:05.610" starttime="20140512 15:49:05.608"></status>
+</kw>
+<msg timestamp="20140512 15:49:05.610" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:05.611" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:05.611" starttime="20140512 15:49:05.607"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:05.611" starttime="20140512 15:49:05.606"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:10.619" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:10.622" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:10.622" starttime="20140512 15:49:10.619"></status>
+</kw>
+<msg timestamp="20140512 15:49:10.622" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:10.623" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:10.623" starttime="20140512 15:49:10.618"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:10.623" starttime="20140512 15:49:10.617"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:15.627" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:15.629" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:15.629" starttime="20140512 15:49:15.627"></status>
+</kw>
+<msg timestamp="20140512 15:49:15.629" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:15.630" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:15.630" starttime="20140512 15:49:15.626"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:15.630" starttime="20140512 15:49:15.625"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:20.633" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:20.636" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:20.636" starttime="20140512 15:49:20.633"></status>
+</kw>
+<msg timestamp="20140512 15:49:20.636" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:20.636" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:20.636" starttime="20140512 15:49:20.632"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:20.637" starttime="20140512 15:49:20.631"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:25.640" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:25.642" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:25.642" starttime="20140512 15:49:25.640"></status>
+</kw>
+<msg timestamp="20140512 15:49:25.643" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:25.643" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:25.643" starttime="20140512 15:49:25.639"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:25.643" starttime="20140512 15:49:25.638"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:30.651" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:30.653" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:30.653" starttime="20140512 15:49:30.651"></status>
+</kw>
+<msg timestamp="20140512 15:49:30.654" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:30.654" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:30.654" starttime="20140512 15:49:30.650"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:30.654" starttime="20140512 15:49:30.649"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:35.662" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:35.665" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:35.665" starttime="20140512 15:49:35.662"></status>
+</kw>
+<msg timestamp="20140512 15:49:35.665" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:35.665" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:35.665" starttime="20140512 15:49:35.662"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:35.666" starttime="20140512 15:49:35.660"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:40.673" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:40.675" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:40.676" starttime="20140512 15:49:40.673"></status>
+</kw>
+<msg timestamp="20140512 15:49:40.676" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:40.676" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:40.676" starttime="20140512 15:49:40.672"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:40.676" starttime="20140512 15:49:40.671"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:45.684" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:45.687" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:45.687" starttime="20140512 15:49:45.684"></status>
+</kw>
+<msg timestamp="20140512 15:49:45.688" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:45.688" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:45.688" starttime="20140512 15:49:45.683"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:45.688" starttime="20140512 15:49:45.682"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:50.693" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:50.696" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:50.696" starttime="20140512 15:49:50.693"></status>
+</kw>
+<msg timestamp="20140512 15:49:50.696" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:50.696" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:50.696" starttime="20140512 15:49:50.692"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:50.697" starttime="20140512 15:49:50.691"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:49:55.700" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:49:55.703" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:55.703" starttime="20140512 15:49:55.700"></status>
+</kw>
+<msg timestamp="20140512 15:49:55.703" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:55.703" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:49:55.703" starttime="20140512 15:49:55.699"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:49:55.704" starttime="20140512 15:49:55.698"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:00.708" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:00.711" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:00.711" starttime="20140512 15:50:00.709"></status>
+</kw>
+<msg timestamp="20140512 15:50:00.711" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:00.712" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:00.712" starttime="20140512 15:50:00.708"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:00.712" starttime="20140512 15:50:00.707"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:05.720" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:05.722" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:05.722" starttime="20140512 15:50:05.720"></status>
+</kw>
+<msg timestamp="20140512 15:50:05.723" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:05.723" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:05.723" starttime="20140512 15:50:05.719"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:05.724" starttime="20140512 15:50:05.718"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:10.731" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:10.734" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:10.735" starttime="20140512 15:50:10.732"></status>
+</kw>
+<msg timestamp="20140512 15:50:10.735" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:10.735" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:10.735" starttime="20140512 15:50:10.731"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:10.736" starttime="20140512 15:50:10.730"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:15.739" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:15.741" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:15.742" starttime="20140512 15:50:15.739"></status>
+</kw>
+<msg timestamp="20140512 15:50:15.742" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:15.742" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:15.742" starttime="20140512 15:50:15.738"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:15.742" starttime="20140512 15:50:15.737"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:20.750" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:20.753" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:20.753" starttime="20140512 15:50:20.750"></status>
+</kw>
+<msg timestamp="20140512 15:50:20.753" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:20.753" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:20.754" starttime="20140512 15:50:20.750"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:20.754" starttime="20140512 15:50:20.748"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:25.762" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:25.764" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:25.764" starttime="20140512 15:50:25.762"></status>
+</kw>
+<msg timestamp="20140512 15:50:25.765" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:25.765" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:25.765" starttime="20140512 15:50:25.761"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:25.765" starttime="20140512 15:50:25.760"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:30.769" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:30.771" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:30.772" starttime="20140512 15:50:30.769"></status>
+</kw>
+<msg timestamp="20140512 15:50:30.772" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:30.772" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:30.772" starttime="20140512 15:50:30.768"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:30.773" starttime="20140512 15:50:30.767"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:35.776" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:35.778" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:35.778" starttime="20140512 15:50:35.776"></status>
+</kw>
+<msg timestamp="20140512 15:50:35.778" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:35.779" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:35.779" starttime="20140512 15:50:35.775"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:35.779" starttime="20140512 15:50:35.774"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:40.786" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:40.789" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:40.790" starttime="20140512 15:50:40.787"></status>
+</kw>
+<msg timestamp="20140512 15:50:40.790" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:40.790" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:40.790" starttime="20140512 15:50:40.786"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:40.790" starttime="20140512 15:50:40.785"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:45.795" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:45.798" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:45.798" starttime="20140512 15:50:45.795"></status>
+</kw>
+<msg timestamp="20140512 15:50:45.798" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:45.798" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:45.798" starttime="20140512 15:50:45.794"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:45.799" starttime="20140512 15:50:45.792"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:50.803" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:50.805" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:50.805" starttime="20140512 15:50:50.803"></status>
+</kw>
+<msg timestamp="20140512 15:50:50.805" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:50.806" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:50.806" starttime="20140512 15:50:50.802"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:50.806" starttime="20140512 15:50:50.801"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:50:55.809" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:50:55.811" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:55.812" starttime="20140512 15:50:55.809"></status>
+</kw>
+<msg timestamp="20140512 15:50:55.812" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:55.812" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:50:55.812" starttime="20140512 15:50:55.808"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:50:55.813" starttime="20140512 15:50:55.807"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:00.820" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:00.823" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:00.823" starttime="20140512 15:51:00.820"></status>
+</kw>
+<msg timestamp="20140512 15:51:00.823" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:00.824" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:00.824" starttime="20140512 15:51:00.820"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:00.824" starttime="20140512 15:51:00.818"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:05.828" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:05.831" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:05.831" starttime="20140512 15:51:05.828"></status>
+</kw>
+<msg timestamp="20140512 15:51:05.831" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:05.831" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:05.831" starttime="20140512 15:51:05.827"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:05.832" starttime="20140512 15:51:05.826"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:10.839" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:10.842" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:10.842" starttime="20140512 15:51:10.840"></status>
+</kw>
+<msg timestamp="20140512 15:51:10.842" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:10.842" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:10.842" starttime="20140512 15:51:10.839"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:10.843" starttime="20140512 15:51:10.837"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:15.850" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:15.853" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:15.853" starttime="20140512 15:51:15.851"></status>
+</kw>
+<msg timestamp="20140512 15:51:15.853" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:15.853" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:15.853" starttime="20140512 15:51:15.850"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:15.854" starttime="20140512 15:51:15.848"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:20.861" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:20.864" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:20.864" starttime="20140512 15:51:20.862"></status>
+</kw>
+<msg timestamp="20140512 15:51:20.864" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:20.865" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:20.865" starttime="20140512 15:51:20.861"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:20.865" starttime="20140512 15:51:20.859"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:25.868" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:25.870" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:25.871" starttime="20140512 15:51:25.868"></status>
+</kw>
+<msg timestamp="20140512 15:51:25.871" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:25.871" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:25.871" starttime="20140512 15:51:25.867"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:25.871" starttime="20140512 15:51:25.866"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:30.879" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:30.881" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:30.882" starttime="20140512 15:51:30.879"></status>
+</kw>
+<msg timestamp="20140512 15:51:30.882" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:30.882" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:30.882" starttime="20140512 15:51:30.878"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:30.882" starttime="20140512 15:51:30.877"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:35.890" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:35.893" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:35.893" starttime="20140512 15:51:35.890"></status>
+</kw>
+<msg timestamp="20140512 15:51:35.893" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:35.894" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:35.894" starttime="20140512 15:51:35.890"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:35.894" starttime="20140512 15:51:35.888"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:40.899" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:40.902" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:40.902" starttime="20140512 15:51:40.900"></status>
+</kw>
+<msg timestamp="20140512 15:51:40.902" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:40.902" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:40.902" starttime="20140512 15:51:40.899"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:40.903" starttime="20140512 15:51:40.898"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:45.911" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:45.914" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:45.914" starttime="20140512 15:51:45.912"></status>
+</kw>
+<msg timestamp="20140512 15:51:45.914" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:45.914" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:45.915" starttime="20140512 15:51:45.911"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:45.915" starttime="20140512 15:51:45.909"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:50.918" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:50.920" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:50.921" starttime="20140512 15:51:50.918"></status>
+</kw>
+<msg timestamp="20140512 15:51:50.921" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:50.921" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:50.921" starttime="20140512 15:51:50.917"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:50.921" starttime="20140512 15:51:50.916"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:51:55.929" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:51:55.932" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:55.932" starttime="20140512 15:51:55.929"></status>
+</kw>
+<msg timestamp="20140512 15:51:55.932" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:55.932" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:51:55.932" starttime="20140512 15:51:55.929"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:51:55.933" starttime="20140512 15:51:55.927"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:52:00.941" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:00.943" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:00.943" starttime="20140512 15:52:00.941"></status>
+</kw>
+<msg timestamp="20140512 15:52:00.944" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:00.944" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:00.944" starttime="20140512 15:52:00.940"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:52:00.944" starttime="20140512 15:52:00.939"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:52:05.952" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:05.954" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:05.955" starttime="20140512 15:52:05.952"></status>
+</kw>
+<msg timestamp="20140512 15:52:05.955" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:05.955" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:05.955" starttime="20140512 15:52:05.951"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:52:05.955" starttime="20140512 15:52:05.950"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:52:10.963" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:10.966" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:10.966" starttime="20140512 15:52:10.963"></status>
+</kw>
+<msg timestamp="20140512 15:52:10.966" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:10.966" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:10.966" starttime="20140512 15:52:10.963"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:52:10.967" starttime="20140512 15:52:10.961"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:52:15.974" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:15.977" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:15.977" starttime="20140512 15:52:15.974"></status>
+</kw>
+<msg timestamp="20140512 15:52:15.977" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:15.977" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:15.978" starttime="20140512 15:52:15.974"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:52:15.978" starttime="20140512 15:52:15.972"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:52:20.985" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:20.988" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:20.988" starttime="20140512 15:52:20.986"></status>
+</kw>
+<msg timestamp="20140512 15:52:20.988" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:20.989" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:20.989" starttime="20140512 15:52:20.985"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:52:20.989" starttime="20140512 15:52:20.984"></status>
+</kw>
+<kw type="kw" name="Check UI 10.10.9.129">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Go To">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}/Login/index.php</arg>
+</arguments>
+<msg timestamp="20140512 15:52:25.996" level="INFO">Opening url '10.10.9.129/Login/index.php'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:25.999" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:25.999" starttime="20140512 15:52:25.997"></status>
+</kw>
+<msg timestamp="20140512 15:52:25.999" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:25.999" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:25.999" starttime="20140512 15:52:25.996"></status>
+</kw>
+<status status="FAIL" endtime="20140512 15:52:26.000" starttime="20140512 15:52:25.995"></status>
+</kw>
+<msg timestamp="20140512 15:52:26.002" level="FAIL">Timeout 10 minutes exceeded. The last error was: No browser is open</msg>
+<status status="FAIL" endtime="20140512 15:52:26.002" starttime="20140512 15:42:24.864"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:26.002" critical="yes" starttime="20140512 15:42:24.863">Timeout 10 minutes exceeded. The last error was: No browser is open</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:52:26.004" starttime="20140512 15:52:26.003"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:52:26.004" starttime="20140512 15:42:24.086"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/restore_backup/04__Upload_Backup_FTP.txt" id="s1-s4" name="Upload Backup FTP">
+<test id="s1-s4-t1" name="Connect to FTP">
+<kw type="kw" name="FtpLibrary.Ftp Connect">
+<doc>Constructs FTP object, opens a connection and login.</doc>
+<arguments>
+<arg>${DEVICE_IP}</arg>
+<arg>${FTP_USER_NAME}</arg>
+<arg>${FTP_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20140512 15:52:29.017" level="FAIL">FtpLibraryError: Socket error exception occured.</msg>
+<status status="FAIL" endtime="20140512 15:52:29.017" starttime="20140512 15:52:26.017"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:29.018" critical="yes" starttime="20140512 15:52:26.015">FtpLibraryError: Socket error exception occured.</status>
+</test>
+<test id="s1-s4-t2" name="Change to backup directory">
+<kw type="kw" name="FtpLibrary.Cwd">
+<doc>Changes working directory and returns server output. Parameters:</doc>
+<arguments>
+<arg>/backup</arg>
+</arguments>
+<msg timestamp="20140512 15:52:29.020" level="FAIL">FtpLibraryError: FTP connection was not established properly.</msg>
+<status status="FAIL" endtime="20140512 15:52:29.020" starttime="20140512 15:52:29.020"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:29.020" critical="yes" starttime="20140512 15:52:29.018">FtpLibraryError: FTP connection was not established properly.</status>
+</test>
+<test id="s1-s4-t3" name="Upload Backup File">
+<kw type="kw" name="FtpLibrary.Upload File">
+<doc>Sends file from local drive to current directory on FTP server in binary mode.</doc>
+<arguments>
+<arg>/tmp/neo.backup</arg>
+<arg>remoteFileName=neo.backup</arg>
+</arguments>
+<msg timestamp="20140512 15:52:29.022" level="FAIL">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</msg>
+<status status="FAIL" endtime="20140512 15:52:29.022" starttime="20140512 15:52:29.022"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:29.022" critical="yes" starttime="20140512 15:52:29.021">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</status>
+</test>
+<test id="s1-s4-t4" name="Disconnect from FTP Server">
+<kw type="kw" name="FtpLibrary.Ftp Close">
+<doc>Closes FTP connection. Returns None.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:29.024" level="FAIL">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</msg>
+<status status="FAIL" endtime="20140512 15:52:29.024" starttime="20140512 15:52:29.024"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:29.025" critical="yes" starttime="20140512 15:52:29.023">FtpLibraryError: No active FTP connection exists. One must be created before calling this method.</status>
+</test>
+<doc>Upload a backup to a NEO to test restore operation</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:52:29.025" starttime="20140512 15:52:26.006"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/restore_backup/05__Enable_Restore.txt" id="s1-s5" name="Enable Restore">
+<test id="s1-s5-t1" name="Login via SSH">
+<kw type="kw" name="${telnet_id_temp} = SSHLibrary.Open Connection">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${DEVICE_IP}</arg>
+<arg>timeout=3 seconds</arg>
+</arguments>
+<msg timestamp="20140512 15:52:29.084" level="INFO">${telnet_id_temp} = 1</msg>
+<status status="PASS" endtime="20140512 15:52:29.084" starttime="20140512 15:52:29.083"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${TELNET_ID}</arg>
+<arg>${telnet_id_temp}</arg>
+</arguments>
+<msg timestamp="20140512 15:52:29.085" level="INFO">${TELNET_ID} = 1</msg>
+<status status="PASS" endtime="20140512 15:52:29.085" starttime="20140512 15:52:29.084"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Set Client Configuration">
+<doc>Update the `configuration` of the current connection.</doc>
+<arguments>
+<arg>prompt=${PROMPT}</arg>
+</arguments>
+<status status="PASS" endtime="20140512 15:52:29.086" starttime="20140512 15:52:29.085"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Login">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${TELNET_USER_NAME}</arg>
+<arg>${TELNET_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20140512 15:52:29.086" level="INFO">Logging into '10.10.9.129:22' as 'admin'.</msg>
+<msg timestamp="20140512 15:52:32.019" level="FAIL">error: [Errno 113] No route to host</msg>
+<status status="FAIL" endtime="20140512 15:52:32.019" starttime="20140512 15:52:29.086"></status>
+</kw>
+<doc>This creates a SSH session, logs into the unit, and stores the unit's hostname in "${HOSTNAME}".  This keyword leaves you at global enable mode on an AOS unit.</doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:32.019" critical="yes" starttime="20140512 15:52:29.081">error: [Errno 113] No route to host</status>
+</test>
+<test id="s1-s5-t2" name="Enter Linux Shell">
+<kw type="kw" name="SSHLibrary.Write">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>shell</arg>
+</arguments>
+<msg timestamp="20140512 15:52:32.022" level="FAIL">AttributeError: 'NoneType' object has no attribute 'open_session'</msg>
+<status status="FAIL" endtime="20140512 15:52:32.022" starttime="20140512 15:52:32.021"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:32.022" critical="yes" starttime="20140512 15:52:32.020">AttributeError: 'NoneType' object has no attribute 'open_session'</status>
+</test>
+<test id="s1-s5-t3" name="Set Restore Operation">
+<kw type="kw" name="SSHLibrary.Write">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>password="VUf+^1N}]Dye(Pa"</arg>
+</arguments>
+<msg timestamp="20140512 15:52:32.024" level="FAIL">AttributeError: 'NoneType' object has no attribute 'open_session'</msg>
+<status status="FAIL" endtime="20140512 15:52:32.024" starttime="20140512 15:52:32.024"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:32.024" critical="yes" starttime="20140512 15:52:32.023">AttributeError: 'NoneType' object has no attribute 'open_session'</status>
+</test>
+<doc>Enable Restore Operation in NEO</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:52:32.025" starttime="20140512 15:52:29.027"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/restore_backup/06__Local_Admin_System_Restore.txt" id="s1-s6" name="Local Admin System Restore">
+<test id="s1-s6-t1" name="Restore Backup">
+<kw type="kw" name="PyroLibrary.Open Pyro Browser">
+<doc>Opens a browser in the context determined by the suite; such as, Sauce Miltiple, Sauce Single, Sauce Solo, Local Solo and add it to Selenium2Library the browser cache.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:32.036" level="INFO">Opening browser 'firefox' to base url 'http://10.10.9.129'</msg>
+<msg timestamp="20140512 15:52:41.973" level="INFO">(open_pyro_browser)
+(open_pyro_browser) setting selenium speed 0.5</msg>
+<status status="PASS" endtime="20140512 15:52:41.973" starttime="20140512 15:52:32.035"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Sencha Login">
+<doc>Using the instantiated browser from `Open Browser`, the page traverses through the login page and waits for the targeted element on the following page.</doc>
+<arguments>
+<arg>admin</arg>
+<arg>password</arg>
+<arg>helpButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:52:48.101" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-126.png"&gt;&lt;img src="selenium-screenshot-126.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:52:48.101" starttime="20140512 15:52:47.446"></status>
+</kw>
+<msg timestamp="20140512 15:52:48.101" level="INFO">(login_sencha)</msg>
+<msg timestamp="20140512 15:52:48.102" level="FAIL">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:52:48.102" starttime="20140512 15:52:41.974"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:52:48.103" critical="yes" starttime="20140512 15:52:32.034">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:52:48.630" starttime="20140512 15:52:48.104"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:52:48.631" starttime="20140512 15:52:32.027"></status>
+</suite>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:52:48.634" starttime="20140512 15:42:02.951"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="17" pass="3">Critical Tests</stat>
+<stat fail="17" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="17" pass="3" id="s1" name="firefox Linux localver">firefox Linux localver</stat>
+<stat fail="1" pass="2" id="s1-s1" name="uiaccessibility UI">firefox Linux localver.uiaccessibility UI</stat>
+<stat fail="4" pass="1" id="s1-s2" name="Download Backup FTP">firefox Linux localver.Download Backup FTP</stat>
+<stat fail="4" pass="0" id="s1-s3" name="Config Assistant Restore Defaults UI">firefox Linux localver.Config Assistant Restore Defaults UI</stat>
+<stat fail="4" pass="0" id="s1-s4" name="Upload Backup FTP">firefox Linux localver.Upload Backup FTP</stat>
+<stat fail="3" pass="0" id="s1-s5" name="Enable Restore">firefox Linux localver.Enable Restore</stat>
+<stat fail="1" pass="0" id="s1-s6" name="Local Admin System Restore">firefox Linux localver.Local Admin System Restore</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20140512 15:42:24.776" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.858" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.862" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:24.868" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:29.875" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:34.881" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:39.895" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:44.902" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:49.913" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:54.920" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:42:59.931" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:04.942" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:09.954" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:14.965" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:19.972" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:24.983" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:29.990" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:35.002" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:40.011" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:45.019" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:50.030" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:43:55.040" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:00.046" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:05.053" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:10.060" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:15.071" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:20.078" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:25.086" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:30.093" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:35.104" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:40.114" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:45.120" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:50.139" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:44:55.151" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:00.163" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:05.172" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:10.184" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:15.191" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:20.198" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:25.204" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:30.212" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:35.218" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:40.226" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:45.238" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:50.244" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:45:55.255" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:00.267" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:05.279" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:10.291" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:15.298" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:20.310" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:25.321" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:30.332" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:35.343" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:40.356" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:45.368" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:50.375" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:46:55.382" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:00.393" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:05.404" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:10.413" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:15.419" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:20.431" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:25.441" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:30.453" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:35.462" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:40.470" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:45.476" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:50.483" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:47:55.495" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:00.501" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:05.508" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:10.519" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:15.525" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:20.536" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:25.542" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:30.549" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:35.555" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:40.566" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:45.578" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:50.585" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:48:55.597" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:00.604" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:05.610" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:10.622" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:15.629" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:20.636" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:25.643" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:30.654" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:35.665" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:40.676" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:45.688" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:50.696" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:49:55.703" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:00.711" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:05.723" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:10.735" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:15.742" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:20.753" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:25.765" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:30.772" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:35.778" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:40.790" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:45.798" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:50.805" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:50:55.812" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:00.823" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:05.831" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:10.842" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:15.853" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:20.864" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:25.871" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:30.882" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:35.893" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:40.902" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:45.914" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:50.921" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:51:55.932" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:00.944" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:05.955" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:10.966" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:15.977" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:20.988" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20140512 15:52:25.999" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+</errors>
+</robot>

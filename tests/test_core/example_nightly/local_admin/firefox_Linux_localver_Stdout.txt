@@ -1,0 +1,271 @@
+==============================================================================
+firefox Linux localver                                                        
+==============================================================================
+firefox Linux localver.01 Local Admin Create User                             
+==============================================================================
+Verify User 3001 Does Not Exist                                       | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Create User 3001                                                      | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Create User 3002                                                      | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.01 Local Admin Create User                     | FAIL |
+3 critical tests, 0 passed, 3 failed
+3 tests total, 0 passed, 3 failed
+==============================================================================
+firefox Linux localver.02 Local Admin Change PIN                              
+==============================================================================
+Change User PIN - ext 3001                                            | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.02 Local Admin Change PIN                      | FAIL |
+1 critical test, 0 passed, 1 failed
+1 test total, 0 passed, 1 failed
+==============================================================================
+firefox Linux localver.04 Local Admin Reassign Extension                      
+==============================================================================
+Reassign Extension 3002                                               | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.04 Local Admin Reassign Extension              | FAIL |
+1 critical test, 0 passed, 1 failed
+1 test total, 0 passed, 1 failed
+==============================================================================
+firefox Linux localver.05 Local Admin Edit Call Queue Membership              
+==============================================================================
+Add A Member To The Call Queue Membership                             | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Remove A Member From The Call Queue Membership                        | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.05 Local Admin Edit Call Queue Membership      | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.06 Local Admin Edit Operator Group Membership          
+==============================================================================
+Add Members to the Operator Group                                     | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Remove Members From The Operator Group                                | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.06 Local Admin Edit Operator Group Membership  | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.07 Local Admin Edit Paging Group Membership            
+==============================================================================
+Edit The Paging Group Membership And Add The User To Page Group       | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Edit The Paging Group Membership And Remove The User From The Page... | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.07 Local Admin Edit Paging Group Membership    | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.08 Local Admin Edit Pickup Membership                  
+==============================================================================
+Edit The Paging Group Membership And Add The User To Pickup Group     | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Edit The Paging Group Membership And Remove The User From The Pick... | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.08 Local Admin Edit Pickup Membership          | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.09 Local Admin Edit Ring Group Membership              
+==============================================================================
+Add A User To The Linear Ring Group                                   | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Remove A User From The Linear Ring Group                              | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.09 Local Admin Edit Ring Group Membership      | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.10 Local Admin Users Tab AddDelete User                
+==============================================================================
+Verify User extension 3003 Does Not Exist                             | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Create User 3003                                                      | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify User Extension 3003 Exists                                     | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Delete User Extension 3003                                            | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Removal Of User Extension 3003                                 | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.10 Local Admin Users Tab AddDelete User        | FAIL |
+5 critical tests, 0 passed, 5 failed
+5 tests total, 0 passed, 5 failed
+==============================================================================
+firefox Linux localver.11 Local Admin Export Users                            
+==============================================================================
+Verify And Click The Export Button (UI validation only)               | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.11 Local Admin Export Users                    | FAIL |
+1 critical test, 0 passed, 1 failed
+1 test total, 0 passed, 1 failed
+==============================================================================
+firefox Linux localver.13 Local Admin Users Tab Edit Profile                  
+==============================================================================
+Edit the User Profile                                                 | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Verify User Profile Settings                                          | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Edit The User Profile To Original Values                              | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Original User Profile Settings                                 | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.13 Local Admin Users Tab Edit Profile          | FAIL |
+4 critical tests, 0 passed, 4 failed
+4 tests total, 0 passed, 4 failed
+==============================================================================
+firefox Linux localver.15 Local Admin Speed Dial Tab                          
+==============================================================================
+Create Speed Dial 1                                                   | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Verify Speed Dial 1 Exists                                            | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Create Speed Dial 2                                                   | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Speed Dial 2 Exists                                            | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Create Speed Dial 3                                                   | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Speed Dial 3 Exists                                            | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Create Speed Dial 4                                                   | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Speed Dial 4 Exists                                            | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Edit Speed Dial 4                                                     | FAIL |
+ValueError: Element locator 'xpath=//*[@id="speedDial_panel_spds_grid-body"]/div/table/tbody/tr[4]' did not match any elements.
+------------------------------------------------------------------------------
+Verify Edit To Speed Dial 4                                           | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Delete Speed Dial 4                                                   | FAIL |
+ValueError: Element locator 'xpath=//*[@id="speedDial_panel_spds_grid-body"]/div/table/tbody/tr[4]' did not match any elements.
+------------------------------------------------------------------------------
+Verify Removal of Speed Dial 4                                        | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.15 Local Admin Speed Dial Tab                  | FAIL |
+12 critical tests, 0 passed, 12 failed
+12 tests total, 0 passed, 12 failed
+==============================================================================
+firefox Linux localver.16 Local Admin System Backup                           
+==============================================================================
+Should Create A Backup                                                | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Download Existing Backup (UI Test Only)                               | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.16 Local Admin System Backup                   | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.17 Local Admin Remove User                             
+==============================================================================
+Remove User 3001                                                      | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Remove User 3002                                                      | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.17 Local Admin Remove User                     | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.18 Local Admin Users External Caller ID Override       
+==============================================================================
+Edit the External Caller ID                                           | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.18 Local Admin Users External Caller ID Ove... | FAIL |
+1 critical test, 0 passed, 1 failed
+1 test total, 0 passed, 1 failed
+==============================================================================
+firefox Linux localver.19 Local Admin Phone Firmwares Tab                     
+==============================================================================
+Verify Phone Firmware for 321                                         | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Export Phone Firmwares List                                           | FAIL |
+Element 'id=firmwares_panelfirmware_grid_export_btn' did not appear in 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.19 Local Admin Phone Firmwares Tab             | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.21 Local Admin Users Tab Voicemail Configuration       
+==============================================================================
+Edit Voicemail Configuration                                          | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Verify Voicemail Configuration Settings                               | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.21 Local Admin Users Tab Voicemail Configur... | FAIL |
+2 critical tests, 0 passed, 2 failed
+2 tests total, 0 passed, 2 failed
+==============================================================================
+firefox Linux localver.22 Local Admin Groups Tab                              
+==============================================================================
+Create Call Queue                                                     | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Verify Call Queue                                                     | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Change Call Queue Membership                                          | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Delete Call Queue                                                     | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Delete Call Queue                                              | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.22 Local Admin Groups Tab                      | FAIL |
+5 critical tests, 0 passed, 5 failed
+5 tests total, 0 passed, 5 failed
+==============================================================================
+firefox Linux localver                                                | FAIL |
+51 critical tests, 0 passed, 51 failed
+51 tests total, 0 passed, 51 failed
+==============================================================================
+Output:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/local_admin/firefox_Linux_localver_Output.xml
+Log:     /mnt/wt/pyro/pyrobot/workspace/LIVE_21/local_admin/firefox_Linux_localver_Log.html
+Report:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/local_admin/firefox_Linux_localver_Report.html

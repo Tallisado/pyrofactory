@@ -1,0 +1,16 @@
+==============================================================================
+firefox Linux 28 :: Testing library                                           
+==============================================================================
+Library - Open Pyro Browser                                           | PASS |
+------------------------------------------------------------------------------
+Factory - Typology                                                    | PASS |
+------------------------------------------------------------------------------
+Library - Verify Attribute From Element                               | PASS |
+------------------------------------------------------------------------------
+firefox Linux 28 :: Testing library                                   | PASS |
+3 critical tests, 3 passed, 0 failed
+3 tests total, 3 passed, 0 failed
+==============================================================================
+Output:  /mnt/wt/pyro/pyrobot/workspace/WEEKLY_DEV_SM_4/01__pyrobot_library/firefox_Linux_28_Output.xml
+Log:     /mnt/wt/pyro/pyrobot/workspace/WEEKLY_DEV_SM_4/01__pyrobot_library/firefox_Linux_28_Log.html
+Report:  /mnt/wt/pyro/pyrobot/workspace/WEEKLY_DEV_SM_4/01__pyrobot_library/firefox_Linux_28_Report.html

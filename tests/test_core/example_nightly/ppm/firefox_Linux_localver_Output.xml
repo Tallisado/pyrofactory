@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140512 15:27:51.410" generator="Robot 2.8.4 (Python 2.7.3 on linux2)">
+<suite source="/home/pyrobot/dev/ui/ppm" id="s1" name="firefox Linux localver">
+<suite source="/home/pyrobot/dev/ui/ppm/PPM_Authentication.txt" id="s1-s1" name="PPM Authentication">
+<test id="s1-s1-t1" name="Test PPM Login and Logout">
+<kw type="kw" name="PyroLibrary.Open Pyro Browser">
+<doc>Opens a browser in the context determined by the suite; such as, Sauce Miltiple, Sauce Single, Sauce Solo, Local Solo and add it to Selenium2Library the browser cache.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:27:51.625" level="INFO">Opening browser 'firefox' to base url 'http://10.10.9.129'</msg>
+<msg timestamp="20140512 15:27:55.291" level="INFO">(open_pyro_browser)
+(open_pyro_browser) setting selenium speed 0.5</msg>
+<status status="PASS" endtime="20140512 15:27:55.292" starttime="20140512 15:27:51.625"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Sencha Login">
+<doc>Using the instantiated browser from `Open Browser`, the page traverses through the login page and waits for the targeted element on the following page.</doc>
+<arguments>
+<arg>3011</arg>
+<arg>1234</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:01.407" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:01.407" starttime="20140512 15:28:00.765"></status>
+</kw>
+<msg timestamp="20140512 15:28:01.408" level="INFO">(login_sencha)</msg>
+<msg timestamp="20140512 15:28:01.409" level="FAIL">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:28:01.409" starttime="20140512 15:27:55.292"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:01.409" critical="yes" starttime="20140512 15:27:51.623">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</status>
+</test>
+<test id="s1-s1-t2" name="Test Invalid Password">
+<kw type="kw" name="PyroLibrary.Selenium Type">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>loginnameid-inputEl</arg>
+<arg>3011</arg>
+</arguments>
+<msg timestamp="20140512 15:28:01.413" level="INFO">Typing text '3011' into text field 'id=loginnameid-inputEl'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:02.565" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:02.565" starttime="20140512 15:28:01.926"></status>
+</kw>
+<msg timestamp="20140512 15:28:02.566" level="FAIL">ValueError: Element locator 'id=loginnameid-inputEl' did not match any elements.</msg>
+<status status="FAIL" endtime="20140512 15:28:02.567" starttime="20140512 15:28:01.412"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:02.567" critical="yes" starttime="20140512 15:28:01.410">ValueError: Element locator 'id=loginnameid-inputEl' did not match any elements.</status>
+</test>
+<test id="s1-s1-t3" name="Test Invalid PIN">
+<kw type="kw" name="PyroLibrary.Selenium Type">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>loginnameid-inputEl</arg>
+<arg>3011</arg>
+</arguments>
+<msg timestamp="20140512 15:28:02.569" level="INFO">Typing text '3011' into text field 'id=loginnameid-inputEl'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:03.718" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:03.718" starttime="20140512 15:28:03.078"></status>
+</kw>
+<msg timestamp="20140512 15:28:03.718" level="FAIL">ValueError: Element locator 'id=loginnameid-inputEl' did not match any elements.</msg>
+<status status="FAIL" endtime="20140512 15:28:03.719" starttime="20140512 15:28:02.569"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:03.719" critical="yes" starttime="20140512 15:28:02.567">ValueError: Element locator 'id=loginnameid-inputEl' did not match any elements.</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:28:04.284" starttime="20140512 15:28:03.720"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:28:04.284" starttime="20140512 15:27:51.455"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/ppm/PPM_Settings.txt" id="s1-s2" name="PPM Settings">
+<test id="s1-s2-t1" name="Login to PPM">
+<kw type="kw" name="PyroLibrary.Open Pyro Browser">
+<doc>Opens a browser in the context determined by the suite; such as, Sauce Miltiple, Sauce Single, Sauce Solo, Local Solo and add it to Selenium2Library the browser cache.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:04.295" level="INFO">Opening browser 'firefox' to base url 'http://10.10.9.129'</msg>
+<msg timestamp="20140512 15:28:11.280" level="INFO">(open_pyro_browser)
+(open_pyro_browser) setting selenium speed 0.5</msg>
+<status status="PASS" endtime="20140512 15:28:11.280" starttime="20140512 15:28:04.295"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Sencha Login">
+<doc>Using the instantiated browser from `Open Browser`, the page traverses through the login page and waits for the targeted element on the following page.</doc>
+<arguments>
+<arg>3011</arg>
+<arg>1234</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:17.395" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:17.396" starttime="20140512 15:28:16.752"></status>
+</kw>
+<msg timestamp="20140512 15:28:17.396" level="INFO">(login_sencha)</msg>
+<msg timestamp="20140512 15:28:17.397" level="FAIL">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:28:17.397" starttime="20140512 15:28:11.280"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:17.397" critical="yes" starttime="20140512 15:28:04.294">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</status>
+</test>
+<test id="s1-s2-t2" name="Set Profile Settings">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:23.509" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:23.510" starttime="20140512 15:28:22.871"></status>
+</kw>
+<msg timestamp="20140512 15:28:23.510" level="FAIL">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:28:23.511" starttime="20140512 15:28:17.399"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:23.511" critical="yes" starttime="20140512 15:28:17.398">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s2-t3" name="Set PIN settings">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:29.625" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:29.626" starttime="20140512 15:28:28.983"></status>
+</kw>
+<msg timestamp="20140512 15:28:29.626" level="FAIL">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:28:29.626" starttime="20140512 15:28:23.513"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:29.627" critical="yes" starttime="20140512 15:28:23.511">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s2-t4" name="Set Voicemail Settings">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:35.750" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:35.751" starttime="20140512 15:28:35.102"></status>
+</kw>
+<msg timestamp="20140512 15:28:35.751" level="FAIL">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:28:35.751" starttime="20140512 15:28:29.628"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:35.752" critical="yes" starttime="20140512 15:28:29.627">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s2-t5" name="Verify Profile Settings">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:41.865" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:41.865" starttime="20140512 15:28:41.226"></status>
+</kw>
+<msg timestamp="20140512 15:28:41.866" level="FAIL">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:28:41.866" starttime="20140512 15:28:35.754"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:41.866" critical="yes" starttime="20140512 15:28:35.752">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s2-t6" name="Verify PIN Settings">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:49.477" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:49.478" starttime="20140512 15:28:48.835"></status>
+</kw>
+<msg timestamp="20140512 15:28:49.478" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:28:49.479" starttime="20140512 15:28:41.868"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:49.479" critical="yes" starttime="20140512 15:28:41.867">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s2-t7" name="Verify Voicemail Settings">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:59.152" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:28:59.152" starttime="20140512 15:28:58.509"></status>
+</kw>
+<msg timestamp="20140512 15:28:59.153" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:28:59.153" starttime="20140512 15:28:49.481"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:28:59.154" critical="yes" starttime="20140512 15:28:49.479">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:28:59.686" starttime="20140512 15:28:59.157"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:28:59.687" starttime="20140512 15:28:04.287"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/ppm/PPM_Settings_International.txt" id="s1-s3" name="PPM Settings International">
+<test id="s1-s3-t1" name="Login to PPM">
+<kw type="kw" name="PyroLibrary.Open Pyro Browser">
+<doc>Opens a browser in the context determined by the suite; such as, Sauce Miltiple, Sauce Single, Sauce Solo, Local Solo and add it to Selenium2Library the browser cache.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:28:59.699" level="INFO">Opening browser 'firefox' to base url 'http://10.10.9.129'</msg>
+<msg timestamp="20140512 15:29:06.800" level="INFO">(open_pyro_browser)
+(open_pyro_browser) setting selenium speed 0.5</msg>
+<status status="PASS" endtime="20140512 15:29:06.800" starttime="20140512 15:28:59.698"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Sencha Login">
+<doc>Using the instantiated browser from `Open Browser`, the page traverses through the login page and waits for the targeted element on the following page.</doc>
+<arguments>
+<arg>3011</arg>
+<arg>1234</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:29:12.916" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:29:12.917" starttime="20140512 15:29:12.272"></status>
+</kw>
+<msg timestamp="20140512 15:29:12.917" level="INFO">(login_sencha)</msg>
+<msg timestamp="20140512 15:29:12.917" level="FAIL">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:29:12.918" starttime="20140512 15:29:06.801"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:29:12.918" critical="yes" starttime="20140512 15:28:59.697">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</status>
+</test>
+<test id="s1-s3-t2" name="Set International Settings - French Canadian">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:29:19.037" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:29:19.037" starttime="20140512 15:29:18.395"></status>
+</kw>
+<msg timestamp="20140512 15:29:19.038" level="FAIL">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:29:19.038" starttime="20140512 15:29:12.920"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:29:19.039" critical="yes" starttime="20140512 15:29:12.919">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s3-t3" name="Verify International Settings - French Canadian">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:29:28.714" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:29:28.715" starttime="20140512 15:29:28.070"></status>
+</kw>
+<msg timestamp="20140512 15:29:28.715" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:29:28.715" starttime="20140512 15:29:19.041"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:29:28.716" critical="yes" starttime="20140512 15:29:19.039">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s3-t4" name="Set International Settings - Spanish-Mexican">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:29:38.469" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:29:38.470" starttime="20140512 15:29:37.826"></status>
+</kw>
+<msg timestamp="20140512 15:29:38.470" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:29:38.470" starttime="20140512 15:29:28.718"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:29:38.471" critical="yes" starttime="20140512 15:29:28.716">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s3-t5" name="Verify International Settings - Spanish-Mexican">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:29:48.150" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:29:48.150" starttime="20140512 15:29:47.505"></status>
+</kw>
+<msg timestamp="20140512 15:29:48.151" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:29:48.151" starttime="20140512 15:29:38.473"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:29:48.152" critical="yes" starttime="20140512 15:29:38.471">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s3-t6" name="Set International Settings - English-US">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:29:57.829" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:29:57.829" starttime="20140512 15:29:57.183"></status>
+</kw>
+<msg timestamp="20140512 15:29:57.829" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:29:57.830" starttime="20140512 15:29:48.153"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:29:57.830" critical="yes" starttime="20140512 15:29:48.152">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s3-t7" name="Verify International Settings - English-US">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:07.508" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:30:07.509" starttime="20140512 15:30:06.855"></status>
+</kw>
+<msg timestamp="20140512 15:30:07.509" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:30:07.510" starttime="20140512 15:29:57.832"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:30:07.510" critical="yes" starttime="20140512 15:29:57.831">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:30:08.042" starttime="20140512 15:30:07.513"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:30:08.043" starttime="20140512 15:28:59.690"></status>
+</suite>
+<suite source="/home/pyrobot/dev/ui/ppm/PPM_Settings_SPRE.txt" id="s1-s4" name="PPM Settings SPRE">
+<test id="s1-s4-t1" name="Drag And Drop SPRE Settings - System Speed Dial">
+<kw type="kw" name="PyroLibrary.Open Pyro Browser">
+<doc>Opens a browser in the context determined by the suite; such as, Sauce Miltiple, Sauce Single, Sauce Solo, Local Solo and add it to Selenium2Library the browser cache.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:08.055" level="INFO">Opening browser 'firefox' to base url 'http://10.10.9.129'</msg>
+<msg timestamp="20140512 15:30:16.021" level="INFO">(open_pyro_browser)
+(open_pyro_browser) setting selenium speed 0.5</msg>
+<status status="PASS" endtime="20140512 15:30:16.021" starttime="20140512 15:30:08.055"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Sencha Login">
+<doc>Using the instantiated browser from `Open Browser`, the page traverses through the login page and waits for the targeted element on the following page.</doc>
+<arguments>
+<arg>3011</arg>
+<arg>1234</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:22.143" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:30:22.143" starttime="20140512 15:30:21.494"></status>
+</kw>
+<msg timestamp="20140512 15:30:22.144" level="INFO">(login_sencha)</msg>
+<msg timestamp="20140512 15:30:22.144" level="FAIL">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:30:22.145" starttime="20140512 15:30:16.022"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:30:22.145" critical="yes" starttime="20140512 15:30:08.054">Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds</status>
+</test>
+<test id="s1-s4-t2" name="Drag And Drop SPRE Settings - Page-Overhead">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:28.271" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:30:28.272" starttime="20140512 15:30:27.633"></status>
+</kw>
+<msg timestamp="20140512 15:30:28.272" level="FAIL">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20140512 15:30:28.272" starttime="20140512 15:30:22.147"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:30:28.273" critical="yes" starttime="20140512 15:30:22.146">Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s4-t3" name="Drag And Drop SPRE Settings - Forward Notification Cancel">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:37.949" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:30:37.949" starttime="20140512 15:30:37.307"></status>
+</kw>
+<msg timestamp="20140512 15:30:37.949" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:30:37.950" starttime="20140512 15:30:28.275"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:30:37.950" critical="yes" starttime="20140512 15:30:28.273">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t4" name="Drag And Drop SPRE Settings - Call Forward Cancel">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:47.624" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:30:47.624" starttime="20140512 15:30:46.981"></status>
+</kw>
+<msg timestamp="20140512 15:30:47.625" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:30:47.625" starttime="20140512 15:30:37.952"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:30:47.625" critical="yes" starttime="20140512 15:30:37.951">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t5" name="Drag And Drop SPRE Settings - Door Phone">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:30:57.302" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:30:57.302" starttime="20140512 15:30:56.659"></status>
+</kw>
+<msg timestamp="20140512 15:30:57.303" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:30:57.303" starttime="20140512 15:30:47.627"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:30:57.303" critical="yes" starttime="20140512 15:30:47.626">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t6" name="Drag And Drop SPRE Settings - DND Enable">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:31:06.972" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:31:06.973" starttime="20140512 15:31:06.332"></status>
+</kw>
+<msg timestamp="20140512 15:31:06.973" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:31:06.973" starttime="20140512 15:30:57.305"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:31:06.974" critical="yes" starttime="20140512 15:30:57.304">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t7" name="Drag And Drop SPRE Settings - DND Disable">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:31:16.644" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:31:16.644" starttime="20140512 15:31:15.999"></status>
+</kw>
+<msg timestamp="20140512 15:31:16.645" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:31:16.645" starttime="20140512 15:31:06.976"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:31:16.646" critical="yes" starttime="20140512 15:31:06.974">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t8" name="Drag And Drop SPRE Settings - Block Caller-ID delivery for this call only">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:31:29.320" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:31:29.320" starttime="20140512 15:31:28.674"></status>
+</kw>
+<msg timestamp="20140512 15:31:29.320" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:31:29.321" starttime="20140512 15:31:16.648"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:31:29.321" critical="yes" starttime="20140512 15:31:16.646">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t9" name="Drag And Drop SPRE Settings - Call Return">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:31:38.999" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:31:38.999" starttime="20140512 15:31:38.354"></status>
+</kw>
+<msg timestamp="20140512 15:31:39.000" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:31:39.000" starttime="20140512 15:31:29.323"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:31:39.000" critical="yes" starttime="20140512 15:31:29.322">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t10" name="Drag And Drop SPRE Settings - Disable Call Waiting on a per call basis">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:31:48.670" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:31:48.670" starttime="20140512 15:31:48.027"></status>
+</kw>
+<msg timestamp="20140512 15:31:48.671" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:31:48.671" starttime="20140512 15:31:39.002"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:31:48.672" critical="yes" starttime="20140512 15:31:39.001">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t11" name="Drag And Drop SPRE Settings - Call last dialed number">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:31:58.342" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:31:58.342" starttime="20140512 15:31:57.697"></status>
+</kw>
+<msg timestamp="20140512 15:31:58.343" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:31:58.343" starttime="20140512 15:31:48.674"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:31:58.344" critical="yes" starttime="20140512 15:31:48.672">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t12" name="Drag And Drop SPRE Settings - Call Park + Zone">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:32:08.020" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-29.png"&gt;&lt;img src="selenium-screenshot-29.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:32:08.021" starttime="20140512 15:32:07.371"></status>
+</kw>
+<msg timestamp="20140512 15:32:08.021" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:32:08.021" starttime="20140512 15:31:58.346"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:32:08.022" critical="yes" starttime="20140512 15:31:58.344">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t13" name="Drag And Drop SPRE Settings - Held Call Pickup/Park Retrieve - Park Zone">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:32:17.688" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:32:17.688" starttime="20140512 15:32:17.047"></status>
+</kw>
+<msg timestamp="20140512 15:32:17.689" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:32:17.689" starttime="20140512 15:32:08.024"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:32:17.690" critical="yes" starttime="20140512 15:32:08.022">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<test id="s1-s4-t14" name="Drag And Drop SPRE Settings - Hands Free Auto-Answer">
+<kw type="kw" name="PyroLibrary.Selenium Reload">
+<doc>Refreshes the browser, which is effectively like the user pressed F5.</doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140512 15:32:30.361" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-31.png"&gt;&lt;img src="selenium-screenshot-31.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140512 15:32:30.361" starttime="20140512 15:32:29.717"></status>
+</kw>
+<msg timestamp="20140512 15:32:30.361" level="FAIL">(selenium_reload) failed because the element was not found after reload</msg>
+<status status="FAIL" endtime="20140512 15:32:30.362" starttime="20140512 15:32:17.691"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140512 15:32:30.362" critical="yes" starttime="20140512 15:32:17.690">(selenium_reload) failed because the element was not found after reload</status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140512 15:32:30.897" starttime="20140512 15:32:30.365"></status>
+</kw>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:32:30.897" starttime="20140512 15:30:08.047"></status>
+</suite>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140512 15:32:30.911" starttime="20140512 15:27:51.412"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="31" pass="0">Critical Tests</stat>
+<stat fail="31" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="31" pass="0" id="s1" name="firefox Linux localver">firefox Linux localver</stat>
+<stat fail="3" pass="0" id="s1-s1" name="PPM Authentication">firefox Linux localver.PPM Authentication</stat>
+<stat fail="7" pass="0" id="s1-s2" name="PPM Settings">firefox Linux localver.PPM Settings</stat>
+<stat fail="7" pass="0" id="s1-s3" name="PPM Settings International">firefox Linux localver.PPM Settings International</stat>
+<stat fail="14" pass="0" id="s1-s4" name="PPM Settings SPRE">firefox Linux localver.PPM Settings SPRE</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

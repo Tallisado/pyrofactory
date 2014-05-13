@@ -1,0 +1,16 @@
+==============================================================================
+chrome Windows 2012 R2 33 :: Testing library                                  
+==============================================================================
+Library - Open Pyro Browser                                           | PASS |
+------------------------------------------------------------------------------
+Factory - Typology                                                    | PASS |
+------------------------------------------------------------------------------
+Library - Verify Attribute From Element                               | PASS |
+------------------------------------------------------------------------------
+chrome Windows 2012 R2 33 :: Testing library                          | PASS |
+3 critical tests, 3 passed, 0 failed
+3 tests total, 3 passed, 0 failed
+==============================================================================
+Output:  /mnt/wt/pyro/pyrobot/workspace/WEEKLY_DEV_SM_4/01__pyrobot_library/chrome_Windows_2012_R2_33_Output.xml
+Log:     /mnt/wt/pyro/pyrobot/workspace/WEEKLY_DEV_SM_4/01__pyrobot_library/chrome_Windows_2012_R2_33_Log.html
+Report:  /mnt/wt/pyro/pyrobot/workspace/WEEKLY_DEV_SM_4/01__pyrobot_library/chrome_Windows_2012_R2_33_Report.html

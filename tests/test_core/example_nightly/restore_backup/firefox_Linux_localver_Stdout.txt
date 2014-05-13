@@ -1,0 +1,227 @@
+==============================================================================
+firefox Linux localver                                                        
+==============================================================================
+firefox Linux localver.uiaccessibility UI                                     
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+Check Login Page                                                      | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.uiaccessibility UI                             | FAIL |
+3 critical tests, 2 passed, 1 failed
+3 tests total, 2 passed, 1 failed
+==============================================================================
+firefox Linux localver.Download Backup FTP :: Download a backup from a NEO ...
+==============================================================================
+Erase Local Backup                                                    | PASS |
+------------------------------------------------------------------------------
+Connect to FTP                                                        | FAIL |
+FtpLibraryError: Socket error exception occured.
+------------------------------------------------------------------------------
+Change to backup directory                                            | FAIL |
+FtpLibraryError: FTP connection was not established properly.
+------------------------------------------------------------------------------
+Download Backup File                                                  | FAIL |
+FtpLibraryError: No active FTP connection exists. One must be created before calling this method.
+------------------------------------------------------------------------------
+Disconnect from FTP Server                                            | FAIL |
+FtpLibraryError: No active FTP connection exists. One must be created before calling this method.
+------------------------------------------------------------------------------
+firefox Linux localver.Download Backup FTP :: Download a backup fr... | FAIL |
+5 critical tests, 1 passed, 4 failed
+5 tests total, 1 passed, 4 failed
+==============================================================================
+firefox Linux localver.Config Assistant Restore Defaults UI                   
+==============================================================================
+Go to Neo                                                             [ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+| FAIL |
+error: [Errno 111] Connection refused
+------------------------------------------------------------------------------
+Go to Wizard                                                          [ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+| FAIL |
+No browser is open
+------------------------------------------------------------------------------
+Restore Factory Defaults                                              [ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+| FAIL |
+No browser is open
+------------------------------------------------------------------------------
+Wait For Unit To Restart                                              [ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open
+| FAIL |
+Timeout 10 minutes exceeded. The last error was: No browser is open
+------------------------------------------------------------------------------
+firefox Linux localver.Config Assistant Restore Defaults UI           | FAIL |
+4 critical tests, 0 passed, 4 failed
+4 tests total, 0 passed, 4 failed
+==============================================================================
+firefox Linux localver.Upload Backup FTP :: Upload a backup to a NEO to tes...
+==============================================================================
+Connect to FTP                                                        | FAIL |
+FtpLibraryError: Socket error exception occured.
+------------------------------------------------------------------------------
+Change to backup directory                                            | FAIL |
+FtpLibraryError: FTP connection was not established properly.
+------------------------------------------------------------------------------
+Upload Backup File                                                    | FAIL |
+FtpLibraryError: No active FTP connection exists. One must be created before calling this method.
+------------------------------------------------------------------------------
+Disconnect from FTP Server                                            | FAIL |
+FtpLibraryError: No active FTP connection exists. One must be created before calling this method.
+------------------------------------------------------------------------------
+firefox Linux localver.Upload Backup FTP :: Upload a backup to a N... | FAIL |
+4 critical tests, 0 passed, 4 failed
+4 tests total, 0 passed, 4 failed
+==============================================================================
+firefox Linux localver.Enable Restore :: Enable Restore Operation in NEO      
+==============================================================================
+Login via SSH :: This creates a SSH session, logs into the unit, a... | FAIL |
+error: [Errno 113] No route to host
+------------------------------------------------------------------------------
+Enter Linux Shell                                                     | FAIL |
+AttributeError: 'NoneType' object has no attribute 'open_session'
+------------------------------------------------------------------------------
+Set Restore Operation                                                 | FAIL |
+AttributeError: 'NoneType' object has no attribute 'open_session'
+------------------------------------------------------------------------------
+firefox Linux localver.Enable Restore :: Enable Restore Operation ... | FAIL |
+3 critical tests, 0 passed, 3 failed
+3 tests total, 0 passed, 3 failed
+==============================================================================
+firefox Linux localver.Local Admin System Restore                             
+==============================================================================
+Restore Backup                                                        | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+firefox Linux localver.Local Admin System Restore                     | FAIL |
+1 critical test, 0 passed, 1 failed
+1 test total, 0 passed, 1 failed
+==============================================================================
+firefox Linux localver                                                | FAIL |
+20 critical tests, 3 passed, 17 failed
+20 tests total, 3 passed, 17 failed
+==============================================================================
+Output:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/restore_backup/firefox_Linux_localver_Output.xml
+Log:     /mnt/wt/pyro/pyrobot/workspace/LIVE_21/restore_backup/firefox_Linux_localver_Log.html
+Report:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/restore_backup/firefox_Linux_localver_Report.html

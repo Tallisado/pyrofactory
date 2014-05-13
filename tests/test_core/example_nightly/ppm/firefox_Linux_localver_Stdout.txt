@@ -1,0 +1,127 @@
+==============================================================================
+firefox Linux localver                                                        
+==============================================================================
+firefox Linux localver.PPM Authentication                                     
+==============================================================================
+Test PPM Login and Logout                                             | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Test Invalid Password                                                 | FAIL |
+ValueError: Element locator 'id=loginnameid-inputEl' did not match any elements.
+------------------------------------------------------------------------------
+Test Invalid PIN                                                      | FAIL |
+ValueError: Element locator 'id=loginnameid-inputEl' did not match any elements.
+------------------------------------------------------------------------------
+firefox Linux localver.PPM Authentication                             | FAIL |
+3 critical tests, 0 passed, 3 failed
+3 tests total, 0 passed, 3 failed
+==============================================================================
+firefox Linux localver.PPM Settings                                           
+==============================================================================
+Login to PPM                                                          | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Set Profile Settings                                                  | FAIL |
+Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds
+------------------------------------------------------------------------------
+Set PIN settings                                                      | FAIL |
+Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds
+------------------------------------------------------------------------------
+Set Voicemail Settings                                                | FAIL |
+Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds
+------------------------------------------------------------------------------
+Verify Profile Settings                                               | FAIL |
+Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds
+------------------------------------------------------------------------------
+Verify PIN Settings                                                   | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify Voicemail Settings                                             | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.PPM Settings                                   | FAIL |
+7 critical tests, 0 passed, 7 failed
+7 tests total, 0 passed, 7 failed
+==============================================================================
+firefox Linux localver.PPM Settings International                             
+==============================================================================
+Login to PPM                                                          | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Set International Settings - French Canadian                          | FAIL |
+Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds
+------------------------------------------------------------------------------
+Verify International Settings - French Canadian                       | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Set International Settings - Spanish-Mexican                          | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify International Settings - Spanish-Mexican                       | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Set International Settings - English-US                               | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Verify International Settings - English-US                            | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.PPM Settings International                     | FAIL |
+7 critical tests, 0 passed, 7 failed
+7 tests total, 0 passed, 7 failed
+==============================================================================
+firefox Linux localver.PPM Settings SPRE                                      
+==============================================================================
+Drag And Drop SPRE Settings - System Speed Dial                       | FAIL |
+Element locator 'loginnameid-inputEl' did not match any elements after 5 seconds
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Page-Overhead                           | FAIL |
+Element 'id=settingsButton-btnIconEl' did not appear in 5 seconds
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Forward Notification Cancel             | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Call Forward Cancel                     | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Door Phone                              | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - DND Enable                              | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - DND Disable                             | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Block Caller-ID delivery for this ca... | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Call Return                             | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Disable Call Waiting on a per call b... | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Call last dialed number                 | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Call Park + Zone                        | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Held Call Pickup/Park Retrieve - Par... | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+Drag And Drop SPRE Settings - Hands Free Auto-Answer                  | FAIL |
+(selenium_reload) failed because the element was not found after reload
+------------------------------------------------------------------------------
+firefox Linux localver.PPM Settings SPRE                              | FAIL |
+14 critical tests, 0 passed, 14 failed
+14 tests total, 0 passed, 14 failed
+==============================================================================
+firefox Linux localver                                                | FAIL |
+31 critical tests, 0 passed, 31 failed
+31 tests total, 0 passed, 31 failed
+==============================================================================
+Output:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/ppm/firefox_Linux_localver_Output.xml
+Log:     /mnt/wt/pyro/pyrobot/workspace/LIVE_21/ppm/firefox_Linux_localver_Log.html
+Report:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/ppm/firefox_Linux_localver_Report.html

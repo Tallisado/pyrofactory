@@ -1,0 +1,210 @@
+==============================================================================
+firefox Linux localver                                                        
+==============================================================================
+firefox Linux localver.uiaccessibility UI                                     
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+Check Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.uiaccessibility UI                             | PASS |
+3 critical tests, 3 passed, 0 failed
+3 tests total, 3 passed, 0 failed
+==============================================================================
+firefox Linux localver.Config Assistant Restore Defaults UI                   
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Wizard                                                          | PASS |
+------------------------------------------------------------------------------
+Restore Factory Defaults                                              | PASS |
+------------------------------------------------------------------------------
+Wait For Unit To Restart                                              | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.Config Assistant Restore Defaults UI           | PASS |
+4 critical tests, 4 passed, 0 failed
+4 tests total, 4 passed, 0 failed
+==============================================================================
+firefox Linux localver.uiaccessibility UI                                     
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+Check Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.uiaccessibility UI                             | PASS |
+3 critical tests, 3 passed, 0 failed
+3 tests total, 3 passed, 0 failed
+==============================================================================
+firefox Linux localver.Config Assistant PBXOnly UI                            
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Wizard                                                          | PASS |
+------------------------------------------------------------------------------
+Create New Configuration                                              | PASS |
+------------------------------------------------------------------------------
+Network Configuration                                                 | PASS |
+------------------------------------------------------------------------------
+General System Setup                                                  | PASS |
+------------------------------------------------------------------------------
+Trunk Configuration                                                   | PASS |
+------------------------------------------------------------------------------
+Analog Trunk Configuration                                            | PASS |
+------------------------------------------------------------------------------
+Resume Previous Session                                               | PASS |
+------------------------------------------------------------------------------
+PRI Trunk Configuration :: Switch types are ISDN, ATT, NORTEL, and... | PASS |
+------------------------------------------------------------------------------
+SIP Trunk Configuration                                               | PASS |
+------------------------------------------------------------------------------
+SIP Trunk Configuration Options                                       | PASS |
+------------------------------------------------------------------------------
+Inband Call Routing :: Select to route incoming calls to the Autoa... | PASS |
+------------------------------------------------------------------------------
+User Configuration                                                    | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.Config Assistant PBXOnly UI                    | PASS |
+13 critical tests, 13 passed, 0 failed
+13 tests total, 13 passed, 0 failed
+==============================================================================
+firefox Linux localver.Config Assistant PBXAndRouter UI                       
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Wizard                                                          | PASS |
+------------------------------------------------------------------------------
+Create New Configuration                                              | PASS |
+------------------------------------------------------------------------------
+Network Configuration                                                 | PASS |
+------------------------------------------------------------------------------
+General System Setup                                                  | PASS |
+------------------------------------------------------------------------------
+Trunk Configuration                                                   | PASS |
+------------------------------------------------------------------------------
+Analog Trunk Configuration                                            | PASS |
+------------------------------------------------------------------------------
+Resume Previous Session                                               | PASS |
+------------------------------------------------------------------------------
+PRI Trunk Configuration :: Switch types are ISDN, ATT, NORTEL, and... | PASS |
+------------------------------------------------------------------------------
+SIP Trunk Configuration                                               | PASS |
+------------------------------------------------------------------------------
+SIP Trunk Configuration Options                                       | PASS |
+------------------------------------------------------------------------------
+Inband Call Routing :: Select to route incoming calls to the Autoa... | PASS |
+------------------------------------------------------------------------------
+User Configuration                                                    | PASS |
+------------------------------------------------------------------------------
+Apply Configuration                                                   | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.Config Assistant PBXAndRouter UI               | PASS |
+14 critical tests, 14 passed, 0 failed
+14 tests total, 14 passed, 0 failed
+==============================================================================
+firefox Linux localver.uiaccessibility UI                                     
+==============================================================================
+Go to Neo                                                             | PASS |
+------------------------------------------------------------------------------
+Go to Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+Check Login Page                                                      | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.uiaccessibility UI                             | PASS |
+3 critical tests, 3 passed, 0 failed
+3 tests total, 3 passed, 0 failed
+==============================================================================
+firefox Linux localver.Verify Interfaces CLI :: DVT Test resource for Robot...
+==============================================================================
+Login via Telnet :: This creates a telnet session, logs into the u... | PASS |
+------------------------------------------------------------------------------
+Check Interface Ethernet 0/1                                          | PASS |
+------------------------------------------------------------------------------
+Check Interface Ethernet 0/2                                          | PASS |
+------------------------------------------------------------------------------
+Check Interface FXO 0/1                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXO 0/2                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXO 0/3                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXO 0/4                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXO 0/5                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXO 0/6                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXS 0/1                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface FXS 0/2                                               | PASS |
+------------------------------------------------------------------------------
+Check Interface PRI                                                   | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.Verify Interfaces CLI :: DVT Test resource ... | PASS |
+12 critical tests, 12 passed, 0 failed
+12 tests total, 12 passed, 0 failed
+==============================================================================
+firefox Linux localver.Set Unit Config CLI :: DVT Test resource for Robot F...
+==============================================================================
+Login via SSH :: This creates a SSH session, logs into the unit, a... | PASS |
+------------------------------------------------------------------------------
+Enter Config Mode                                                     | PASS |
+------------------------------------------------------------------------------
+Remove FXS Users                                                      | PASS |
+------------------------------------------------------------------------------
+Create Ring Group 8001                                                | PASS |
+------------------------------------------------------------------------------
+Create Ring Group 8002                                                | PASS |
+------------------------------------------------------------------------------
+Create Ring Group 8003                                                | PASS |
+------------------------------------------------------------------------------
+Create Ring Group 8004                                                | PASS |
+------------------------------------------------------------------------------
+Create Operator Group 1600                                            | PASS |
+------------------------------------------------------------------------------
+Create Queue Group 8005                                               | PASS |
+------------------------------------------------------------------------------
+Create Paging Group 8100                                              | PASS |
+------------------------------------------------------------------------------
+Create Pickup Group 8201                                              | PASS |
+------------------------------------------------------------------------------
+Create custom admin user for HSV                                      | PASS |
+------------------------------------------------------------------------------
+Turn off Firewall                                                     | PASS |
+------------------------------------------------------------------------------
+Save Config                                                           | PASS |
+------------------------------------------------------------------------------
+firefox Linux localver.Set Unit Config CLI :: DVT Test resource fo... | PASS |
+14 critical tests, 14 passed, 0 failed
+14 tests total, 14 passed, 0 failed
+==============================================================================
+firefox Linux localver.Reset Config CLI :: DVT Test resource for Robot Fram...
+==============================================================================
+Login via SSH :: This creates a SSH session, logs into the unit, a... | PASS |
+------------------------------------------------------------------------------
+Factory Default Unit                                                  | FAIL |
+Timeout 10 minutes exceeded. The last error was: error: [Errno 113] No route to host
+------------------------------------------------------------------------------
+Configure WAN Interface                                               | FAIL |
+error: [Errno 113] No route to host
+------------------------------------------------------------------------------
+Copy Config File                                                      | FAIL |
+AttributeError: 'NoneType' object has no attribute 'open_session'
+------------------------------------------------------------------------------
+Reboot Unit                                                           | FAIL |
+AttributeError: 'NoneType' object has no attribute 'open_session'
+------------------------------------------------------------------------------
+firefox Linux localver.Reset Config CLI :: DVT Test resource for R... | FAIL |
+5 critical tests, 1 passed, 4 failed
+5 tests total, 1 passed, 4 failed
+==============================================================================
+firefox Linux localver                                                | FAIL |
+71 critical tests, 67 passed, 4 failed
+71 tests total, 67 passed, 4 failed
+==============================================================================
+Output:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/config_assistant/firefox_Linux_localver_Output.xml
+Log:     /mnt/wt/pyro/pyrobot/workspace/LIVE_21/config_assistant/firefox_Linux_localver_Log.html
+Report:  /mnt/wt/pyro/pyrobot/workspace/LIVE_21/config_assistant/firefox_Linux_localver_Report.html

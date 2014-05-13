@@ -215,57 +215,40 @@ class PyroFactory():
         # determine if this is weekly or nightly
         email_from = 'DVT-AUTOMATION@ADTRAN.COM' 
         email_to = ['tallis.vanek@adtran.com', 'michael.lerner@adtran.com']
-        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE')
-        if 'nightly' in email_type:
-            email_type = 'Nightly'            
-        elif 'weekly' in email_type:
-            email_type = 'Weekly'
-            
-        if 'live' in email_type:
-                email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
+        email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE')      
         
-        print "(PyroFactory) [send_email]: Email List =" 
-        print "(PyroFactory) [send_email]: %s " % email_to
+        constructed_email_results = ConstructEmailResults(example)
         
-        email_message = "Automation Summary:\n\n"        
-        
-        verbose_stream = None
-        rrp = RobotResultsParser(False, verbose_stream)
-        robot_results = []
-        for dirname in os.walk(self._workspace).next()[1]:
-            print dirname
-            test_dir = os.path.join(self._workspace,dirname)
-            for file in os.listdir(test_dir):
-                if file.endswith(".xml"):
-                    print file
-                    robot_results.append(rrp.xml_to_object(os.path.join(test_dir,file), dirname))
- 
-        suite_result = "PASSED"
-        for result in robot_results:           
-            if result.failed == 0:
-                task_text_result = "PASSED"
-            else:
-                task_text_result = "FAILED"
-                suite_result = "FAILED"
+        msg = "Automation Summary:\n\n" 
+        msg += "\n\nTotal tests: %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
+
+        for i, pyro_result in enumerate(constructed_email_results.pyro_results):
+            msg += "  %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
+
+        msg += "\nResults that have (FAILED):\n"
+        for pyro_result in constructed_email_results.pyro_results:
+            if not pyro_result.test_statuses_passed():    
+                msg += "  %s\r\n" % (pyro_result.get_name(email_type))
+
+        msg += "\n\nResults that have (PASSED):\n"
+        for pyro_result in constructed_email_results.pyro_results:
+            if pyro_result.test_statuses_passed():    
+                msg += "  %s\r\n" % (pyro_result.get_name(email_type))
                 
-            if email_type == 'Nightly':
-                email_message += "  %10s -> %10s\r\n" % (result.suite, task_text_result)
-            else:
-                email_message += "%s%10s%s%-40s->%10s\r\n" % ('  ',result.suite, '  ', os.path.basename(os.path.normpath(result.source))[:-11], task_text_result)
-        
-        #http://10.10.8.17/teamcity/viewLog.html?buildId=2829&buildTypeId=WeeklyDev_03SauceSingleV11&tab=artifacts
-        # export BUILDID=%teamcity.build.id%
-        # export BUILDTYPEID=%system.teamcity.buildType.id%
-        #echo "##teamcity[setParameter name='env.BUILDID' value='%teamcity.build.id%']"
-        #echo "##teamcity[setParameter name='env.BUILDTYPEID' value='%system.teamcity.buildType.id%']"        
         if 'TEAMCITY_VERSION' in os.environ:
             artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
+            buildlog_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=buildLog" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
             #artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % ('2829', 'WeeklyDev_03SauceSingleV11') # buildId, buildTypeId
-            email_message += "\n  TeamCity Artifacts: \n   %s" % artifacts_weblink
-                
-        print email_message
+            msg += "\n  TeamCity Artifacts: \n   %s" % artifacts_weblink        
+            msg += "\n  TeamCity BuildLogs: \n   %s" % buildlog_weblink        
+
+        msg += "\n\nDetailed Failure Results:\n"    
+        for pyro_result in constructed_email_results.pyro_results:
+            for i, status in enumerate(pyro_result.test_statuses):
+               if pyro_result.test_statuses[i] != 'PASS':
+                   msg += "(%s) %s | %s\n" % (pyro_result.get_name(email_type), pyro_result.test_names[i], pyro_result.fail_messages[i])  
         
-        msg = MIMEText(email_message,"\n\n")
+        msg = MIMEText(msg,"\n\n")
         msg['Subject'] = "<%s %s>" % (email_type, suite_result)
         msg['From'] = email_from
         msg['To'] = ", ".join(email_to)

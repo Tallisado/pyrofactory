@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140425 14:37:17.537" generator="Robot 2.8.4 (Python 2.7.3 on linux2)">
+<suite source="/mnt/wt/pyro/pyrobot/dev/spec/01__pyrobot_library.txt" id="s1" name="chrome Windows 2012 R2 33">
+<test id="s1-t1" name="Library - Open Pyro Browser">
+<kw type="kw" name="PyroLibrary.Open Pyro Browser">
+<doc>Opens a browser in the context determined by the suite; such as, Sauce Miltiple, Sauce Single, Sauce Solo, Local Solo and add it to Selenium2Library the browser cache.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140425 14:37:17.734" level="INFO">Opening browser 'firefox' to base url 'http://10.10.9.63' through remote server at 'http://talliskane:6c3ed64b-e065-4df4-b921-75336e2cb9cf@ondemand.saucelabs.com:80/wd/hub'</msg>
+<msg timestamp="20140425 14:37:28.960" level="INFO">(open_pyro_browser)
+execute sauce rest to update
+(Wrapper) user:talliskane key:6c3ed64b-e065-4df4-b921-75336e2cb9cf job:/mnt/wt/pyrobot_v1.1/pyrobot/dev/resources/topology/topology_default.py session:6fdd101b0ad2465480555cff498a41aa
+SauceOnDemandSessionID=6fdd101b0ad2465480555cff498a41aa job-name=/mnt/wt/pyrobot_v1.1/pyrobot/dev/resources/topology/topology_default.py</msg>
+<status status="PASS" endtime="20140425 14:37:28.960" starttime="20140425 14:37:17.734"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Sencha Login">
+<doc>Using the instantiated browser from `Open Browser`, the page traverses through the login page and waits for the targeted element on the following page.</doc>
+<arguments>
+<arg>3011</arg>
+<arg>1234</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<msg timestamp="20140425 14:37:33.745" level="INFO">Typing text '3011' into text field 'loginnameid-inputEl'</msg>
+<msg timestamp="20140425 14:37:37.747" level="INFO">Typing text '1234' into text field 'loginpasswordid-inputEl'</msg>
+<msg timestamp="20140425 14:37:44.520" level="INFO">Clicking element 'id=loginbuttonid-btnIconEl'.</msg>
+<msg timestamp="20140425 14:37:55.664" level="INFO">(login_sencha)</msg>
+<status status="PASS" endtime="20140425 14:37:55.665" starttime="20140425 14:37:28.961"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>${NEO_TITLE}</arg>
+</arguments>
+<msg timestamp="20140425 14:37:56.829" level="INFO">Page title is 'ADTRAN Neo'.</msg>
+<status status="PASS" endtime="20140425 14:37:56.829" starttime="20140425 14:37:55.665"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>PyroUnitTest</tag>
+</tags>
+<status status="PASS" endtime="20140425 14:37:56.830" critical="yes" starttime="20140425 14:37:17.732"></status>
+</test>
+<test id="s1-t2" name="Factory - Typology">
+<kw type="kw" name="BuiltIn.Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${DEFAULT_TOPOLOGY_VALUE}</arg>
+<arg>1337</arg>
+<arg>msg="topology was not given to pybot"</arg>
+</arguments>
+<msg timestamp="20140425 14:37:56.832" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20140425 14:37:56.832" starttime="20140425 14:37:56.832"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>PyroUnitTest</tag>
+</tags>
+<status status="PASS" endtime="20140425 14:37:56.833" critical="yes" starttime="20140425 14:37:56.830"></status>
+</test>
+<test id="s1-t3" name="Library - Verify Attribute From Element">
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<status status="PASS" endtime="20140425 14:37:58.017" starttime="20140425 14:37:56.834"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Selenium Click">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsButton-btnIconEl</arg>
+</arguments>
+<msg timestamp="20140425 14:38:03.019" level="INFO">Slept 5 seconds</msg>
+<msg timestamp="20140425 14:38:03.019" level="INFO">Clicking element 'id=settingsButton-btnIconEl'.</msg>
+<status status="PASS" endtime="20140425 14:38:05.786" starttime="20140425 14:37:58.018"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Selenium Wait For Element Present">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsProfile</arg>
+</arguments>
+<status status="PASS" endtime="20140425 14:38:06.979" starttime="20140425 14:38:05.787"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Selenium Click">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>settingsProfile</arg>
+</arguments>
+<msg timestamp="20140425 14:38:11.981" level="INFO">Slept 5 seconds</msg>
+<msg timestamp="20140425 14:38:11.981" level="INFO">Clicking element 'id=settingsProfile'.</msg>
+<status status="PASS" endtime="20140425 14:38:14.770" starttime="20140425 14:38:06.980"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Selenium Verify Attribute From Element">
+<doc></doc>
+<arguments>
+<arg>name</arg>
+<arg>HomeNumber</arg>
+<arg>value</arg>
+<arg>(613) 599-0100</arg>
+</arguments>
+<status status="PASS" endtime="20140425 14:38:17.170" starttime="20140425 14:38:14.771"></status>
+</kw>
+<kw type="kw" name="PyroLibrary.Selenium Click">
+<doc></doc>
+<arguments>
+<arg>id</arg>
+<arg>saveUserProfileId-btnIconEl</arg>
+</arguments>
+<msg timestamp="20140425 14:38:22.172" level="INFO">Slept 5 seconds</msg>
+<msg timestamp="20140425 14:38:22.172" level="INFO">Clicking element 'id=saveUserProfileId-btnIconEl'.</msg>
+<status status="PASS" endtime="20140425 14:38:24.769" starttime="20140425 14:38:17.171"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>PyroUnitTest</tag>
+</tags>
+<status status="PASS" endtime="20140425 14:38:24.770" critical="yes" starttime="20140425 14:37:56.833"></status>
+</test>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140425 14:38:26.057" starttime="20140425 14:38:24.771"></status>
+</kw>
+<doc>Testing library</doc>
+<metadata>
+<item name="More Info">For more information about Pyrobot see https://github.com/Tallisado/pyro</item>
+<item name="Version">1.1</item>
+</metadata>
+<status status="PASS" endtime="20140425 14:38:26.058" starttime="20140425 14:37:17.538"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="3" fail="0">PyroUnitTest</stat>
+</tag>
+<suite>
+<stat fail="0" pass="3" id="s1" name="chrome Windows 2012 R2 33">chrome Windows 2012 R2 33</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
