@@ -122,7 +122,7 @@ class TestResultChecker(ResultVisitor):
 
     def start_result(self, test):
         #print "START"
-        print test.suite.test_count
+        #print test.suite.test_count
         self._pyro_test_result.suite_test_count  = test.suite.test_count
         # print test.suite.source
         self._pyro_test_result.suite_name = test.suite.source
@@ -159,11 +159,11 @@ class ConstructEmailResults(object):
             for xml_file in os.listdir(testspace_path):
                 if xml_file.endswith(".xml"):
                     xml_path = (os.path.join(testspace_path,xml_file))
-                    print xml_path
+                    #print xml_path
                     try:
                         result = ExecutionResult(xml_path, include_keywords=True)
                     except DataError:
-                        print "SHIT FILE FOUND: %s " % xml_path
+                        print "EMPTY SUITE FOUND, TRYING TO REBOUND: %s " % xml_path
                         self._pyro_test_results.append(PyroTestResult().empty_testsuite(xml_path))
                         #continue
                     else:
