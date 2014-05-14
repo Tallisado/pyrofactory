@@ -252,7 +252,7 @@ class PyroFactory():
                if pyro_result.test_statuses[i] != 'PASS':
                    msg += "(%s) %s | %s\n" % (pyro_result.get_name(email_type), pyro_result.test_names[i], pyro_result.fail_messages[i])  
         
-        msg = MIMEText(msg,"\n\n")
+        msg = MIMEText(msg,"plain", "utf-8")
         msg['Subject'] = "<%s %s>" % (email_type, 'PASSED' if testsuite_passed else 'FAILED')
         msg['From'] = email_from
         msg['To'] = ", ".join(email_to)
