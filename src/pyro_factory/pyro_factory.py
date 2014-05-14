@@ -222,19 +222,19 @@ class PyroFactory():
 
         constructed_email_results = ConstructEmailResults(workspace_home)
         
-        msg = "Automation Summary:\n\n" 
+        msg = "Nightly Automation Summary:\n\n" 
         msg += "Total tests:  %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
 
         for i, pyro_result in enumerate(constructed_email_results.pyro_results):
             msg += "  - %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
 
-        msg += "\TestSuites that have (FAILED):\n"
+        msg += "\nTestSuites that have (FAILED):\n"
         for pyro_result in constructed_email_results.pyro_results:
             if not pyro_result.test_statuses_passed():    
                 testsuite_passed = False
                 msg += "  - %s\r\n" % (pyro_result.get_name(email_type))
 
-        msg += "\TestSuites that have (PASSED):\n"
+        msg += "TestSuites that have (PASSED):\n"
         for pyro_result in constructed_email_results.pyro_results:
             if pyro_result.test_statuses_passed():    
                 msg += "  %s\r\n" % (pyro_result.get_name(email_type))
@@ -247,14 +247,14 @@ class PyroFactory():
             msg += "\nTeamCity BuildLogs: \n   %s" % buildlog_weblink        
 
         msg += "\n\n-- Detailed Debugging Report --:\n"    
-        msg += "... [Snippets of Failure Results]:\n"    
+        msg += "... [Snippets of Failure Results]:\n\n"    
         for pyro_result in constructed_email_results.pyro_results:
             for i, status in enumerate(pyro_result.test_statuses):
                if pyro_result.test_statuses[i] != 'PASS':
                    msg += "(%s) %s | %s\n" % (pyro_result.get_name(email_type), pyro_result.test_names[i], pyro_result.fail_messages[i])  
         
         msg = MIMEText(msg,"plain", "utf-8")
-        msg['Subject'] = "<%s %s>" % (email_type, 'PASSED' if testsuite_passed else 'FAILED')
+        msg['Subject'] = "<%s %s (%s)>" % (email_type, 'PASSED' if testsuite_passed else 'FAILED', os.environ.get('BIZFILE', 'Unknown.Biz'))
         msg['From'] = email_from
         msg['To'] = ", ".join(email_to)
 
