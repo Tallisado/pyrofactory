@@ -1,5 +1,5 @@
  #BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python pyrobot.py
- #BASE_URL=http://10.10.9.63 BROWSER='chrome' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python pyrobot.py
+ #BASE_URL=http://10.10.9.63 BROWSER='chrome' PAYLOAD=/mnt/wt/pyro/pyrobot/dev/spec/01__pyrobot_library.txt python pyrobot.py
  #WORKSPACE_UID=WEEKLY_DEV_%env.BUILD_NUMBER% BASE_URL=http://10.10.9.63 BROWSER='Linux,chrome,32' PAYLOAD=/mnt/wt/pyrobot_2/pyrobot/dev/spec/02__pyrobot_library.txt python /mnt/wt/pyrobot_2/pyrobot/pyrobot.py
  
 # imports
@@ -237,7 +237,7 @@ class PyroFactory():
         msg += "TestSuites that have (PASSED):\n"
         for pyro_result in constructed_email_results.pyro_results:
             if pyro_result.test_statuses_passed():    
-                msg += "  %s\r\n" % (pyro_result.get_name(email_type))
+                msg += "  - %s\r\n" % (pyro_result.get_name(email_type))
                 
         if 'TEAMCITY_VERSION' in os.environ:
             artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
@@ -246,7 +246,7 @@ class PyroFactory():
             msg += "\n\nTeamCity Artifacts: \n   %s" % artifacts_weblink        
             msg += "\nTeamCity BuildLogs: \n   %s" % buildlog_weblink        
 
-        msg += "\n\n-- Detailed Debugging Report --:\n"    
+        msg += "\n\n-- Detailed Debugging Report --\n"    
         msg += "... [Snippets of Failure Results]:\n\n"    
         for pyro_result in constructed_email_results.pyro_results:
             for i, status in enumerate(pyro_result.test_statuses):
