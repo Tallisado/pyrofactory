@@ -217,7 +217,7 @@ class PyroFactory():
         email_to = ['tallis.vanek@adtran.com', 'michael.lerner@adtran.com']
         email_type = os.environ.get('TEAMCITY_PROJECT_NAME', 'Pyro_CMDLINE') 
         testsuite_passed = True
-        if 'live' in email_type:
+        if 'live' in email_type.lower():
             email_to = 'UC Testers <UCTesters@adtran.com>, UC Developers <UCDevelopers@adtran.com>' 
 
         constructed_email_results = ConstructEmailResults(workspace_home)
