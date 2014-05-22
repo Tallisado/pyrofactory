@@ -254,12 +254,13 @@ class PyroFactory():
             msg += "\n\nTeamCity Artifacts: \n   %s" % artifacts_weblink        
             msg += "\nTeamCity BuildLogs: \n   %s" % buildlog_weblink        
 
-        msg += "\n\n-- Detailed Debugging Report --\n"    
-        msg += "... [Snippets of Failure Results]:\n\n"    
-        for pyro_result in constructed_email_results.pyro_results:
-            for i, status in enumerate(pyro_result.test_statuses):
-               if pyro_result.test_statuses[i] != 'PASS':
-                   msg += "(%s) %s | %s\n" % (pyro_result.get_name(email_type), pyro_result.test_names[i], pyro_result.fail_messages[i])  
+        if fail_ctr not 0:
+            msg += "\n\n-- Detailed Debugging Report --\n"    
+            msg += "... [Snippets of Failure Results]:\n\n"    
+            for pyro_result in constructed_email_results.pyro_results:
+                for i, status in enumerate(pyro_result.test_statuses):
+                   if pyro_result.test_statuses[i] != 'PASS':
+                       msg += "(%s) %s | %s\n" % (pyro_result.get_name(email_type), pyro_result.test_names[i], pyro_result.fail_messages[i])  
         
         msg = MIMEText(msg,"plain", "utf-8")
         msg['Subject'] = "<%s %s (%s)>" % (email_type, 'PASSED' if testsuite_passed else 'FAILED', os.environ.get('BIZFILE', 'Unknown.Biz'))
