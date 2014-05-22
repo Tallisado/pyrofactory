@@ -228,17 +228,25 @@ class PyroFactory():
         for i, pyro_result in enumerate(constructed_email_results.pyro_results):
             msg += "  - %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
 
-        msg += "\nTestSuites that have (FAILED):\n"
+        fail_msg = ""        
+        fail_ctr = 0        
         for pyro_result in constructed_email_results.pyro_results:
             if not pyro_result.test_statuses_passed():    
                 testsuite_passed = False
-                msg += "  - %s\r\n" % (pyro_result.get_name(email_type))
+                fail_msg += "  - %s\r\n" % (pyro_result.get_name(email_type))
+                fail_ctr += 1
+        msg += "\nTestSuites that have (FAILED): %s\n" % fail_ctr
+        msg += fail_msg
 
-        msg += "TestSuites that have (PASSED):\n"
+        pass_msg = ""        
+        pass_ctr = 0  
         for pyro_result in constructed_email_results.pyro_results:
             if pyro_result.test_statuses_passed():    
-                msg += "  - %s\r\n" % (pyro_result.get_name(email_type))
-                
+                pass_msg += "  - %s\r\n" % (pyro_result.get_name(email_type))
+                pass_ctr += 1
+        msg += "\r\nTestSuites that have (PASSED): %s\n" % pass_ctr
+        msg += pass_msg
+
         if 'TEAMCITY_VERSION' in os.environ:
             artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
             buildlog_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=buildLog" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))

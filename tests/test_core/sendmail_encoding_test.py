@@ -5,7 +5,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-msg = MIMEText(u'\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\xe9\n',"plain")
+msg = MIMEText(u'\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\xe9\n',"plain", "utf-8")
 #msg = MIMEText('hello',"plain", "utf-8")
 msg['Subject'] = "test"
 msg['From'] = 'DVT-AUTOMATION@ADTRAN.COM'
