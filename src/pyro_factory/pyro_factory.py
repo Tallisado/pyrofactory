@@ -223,11 +223,7 @@ class PyroFactory():
         constructed_email_results = ConstructEmailResults(workspace_home)
         
         msg = "Nightly Automation Summary:\n\n" 
-        msg += "Total tests:  %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
-
-        for i, pyro_result in enumerate(constructed_email_results.pyro_results):
-            msg += "  - %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
-
+        
         fail_msg = ""        
         fail_ctr = 0        
         for pyro_result in constructed_email_results.pyro_results:
@@ -246,6 +242,10 @@ class PyroFactory():
                 pass_ctr += 1
         msg += "\r\nTestSuites that have (PASSED): %s\n" % pass_ctr
         msg += pass_msg
+
+        msg += "Total TestCases:  %s\n" % (sum(pyro_result.suite_test_count for pyro_result in constructed_email_results.pyro_results))
+        for i, pyro_result in enumerate(constructed_email_results.pyro_results):
+            msg += "  - %s(%s)\r\n" % (pyro_result.get_name(email_type), pyro_result.suite_test_count)
 
         if 'TEAMCITY_VERSION' in os.environ:
             artifacts_weblink = "http://10.10.8.17/teamcity/viewLog.html?buildId=%s&buildTypeId=%s&tab=artifacts" % (os.environ.get('BUILDID', '0'), os.environ.get('BUILDTYPEID', '0'))
