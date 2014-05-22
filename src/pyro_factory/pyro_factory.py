@@ -254,7 +254,7 @@ class PyroFactory():
             msg += "\n\nTeamCity Artifacts: \n   %s" % artifacts_weblink        
             msg += "\nTeamCity BuildLogs: \n   %s" % buildlog_weblink        
 
-        if fail_ctr not 0:
+        if fail_ctr > 0:
             msg += "\n\n-- Detailed Debugging Report --\n"    
             msg += "... [Snippets of Failure Results]:\n\n"    
             for pyro_result in constructed_email_results.pyro_results:
