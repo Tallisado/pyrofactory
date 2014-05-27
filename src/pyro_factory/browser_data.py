@@ -99,8 +99,10 @@ class BrowserData:
         if self.usecmdline_browser_localformat:
             os.environ["PYBROWSER"] = self.getBrowser(i)
         os.environ["PYROBOT_REMOTE_URL"] = 'http://%s:%s@ondemand.saucelabs.com:80/wd/hub' % (self.getUserName(i), self.getAccessKey(i))
-        os.environ["PYROBOT_CAPS"] = 'name:%s,platform:%s,version:%s,browserName:%s,javascriptEnabled:True' % (test_name, self.getOS(i), self.getBrowserVersion(i), self.getBrowser(i))
-        if not self.usecmdline_display:
+        #os.environ["PYROBOT_CAPS"] = 'name:%s,platform:%s,version:%s,browserName:%s,javascriptEnabled:True' % (test_name, self.getOS(i), self.getBrowserVersion(i), self.getBrowser(i))
+        os.environ["PYROBOT_CAPS"] = config.BROWSER_CAPABILITIES % (test_name, self.getOS(i), self.getBrowserVersion(i), self.getBrowser(i))   
+
+if not self.usecmdline_display:
             os.environ['DISPLAY'] = config.DEFAULT_BROWSER_DISPLAY          
         
         print '(BrowserData)[setRuntimeENV] BASE_URL:            %s' %  os.environ['BASE_URL']
