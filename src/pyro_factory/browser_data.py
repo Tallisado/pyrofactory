@@ -102,7 +102,7 @@ class BrowserData:
         #os.environ["PYROBOT_CAPS"] = 'name:%s,platform:%s,version:%s,browserName:%s,javascriptEnabled:True' % (test_name, self.getOS(i), self.getBrowserVersion(i), self.getBrowser(i))
         os.environ["PYROBOT_CAPS"] = config.BROWSER_CAPABILITIES % (test_name, self.getOS(i), self.getBrowserVersion(i), self.getBrowser(i))   
 
-if not self.usecmdline_display:
+        if not self.usecmdline_display:
             os.environ['DISPLAY'] = config.DEFAULT_BROWSER_DISPLAY          
         
         print '(BrowserData)[setRuntimeENV] BASE_URL:            %s' %  os.environ['BASE_URL']
