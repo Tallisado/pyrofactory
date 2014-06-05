@@ -154,7 +154,11 @@ class PyroFactory():
         
         self._workspace = workspace_home
         
-        pyarg_variable_file = os.path.join(self._config.DEFAULT_TOPOLOGY_FOLDER, self._config.DEFAULT_TOPOLOGY)
+        if os.environ.get('TOPOLOGY'):
+            pyarg_variable_file = os.path.join(self._config.DEFAULT_TOPOLOGY_FOLDER, os.environ.get('TOPOLOGY'))
+        else:
+            pyarg_variable_file = os.path.join(self._config.DEFAULT_TOPOLOGY_FOLDER, self._config.DEFAULT_TOPOLOGY)
+        
         pybot_argstring = "--variablefile %s" % pyarg_variable_file
                 
         print '(PyroFactory)[run][RUNTIME] Suite Name:       %s' % suite_name
